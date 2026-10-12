@@ -1,0 +1,107 @@
+/* Сайт Ai CEO Tycoon — общий стиль (главная, политика). Шрифты игры: Unbounded (заголовки) и Golos Text (текст). */
+@font-face { font-family: 'Unbounded'; font-weight: 600; font-display: swap; src: url(fonts/unbounded-latin-600.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Unbounded'; font-weight: 600; font-display: swap; src: url(fonts/unbounded-cyrillic-600.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Unbounded'; font-weight: 800; font-display: swap; src: url(fonts/unbounded-latin-800.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Unbounded'; font-weight: 800; font-display: swap; src: url(fonts/unbounded-cyrillic-800.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Golos Text'; font-weight: 400; font-display: swap; src: url(fonts/golos-text-latin-400.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Golos Text'; font-weight: 400; font-display: swap; src: url(fonts/golos-text-cyrillic-400.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Golos Text'; font-weight: 600; font-display: swap; src: url(fonts/golos-text-latin-600.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Golos Text'; font-weight: 600; font-display: swap; src: url(fonts/golos-text-cyrillic-600.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+
+:root {
+  --bg: #0b0918; --bg2: #120e26; --panel: rgba(22, 17, 46, 0.62); --panel-solid: #17122f; --line: rgba(255, 255, 255, 0.1); --line2: rgba(255, 255, 255, 0.18);
+  --ink: #f2edff; --muted: #b3a9d4; --dim: #7d73a3;
+  --teal: #62e6d6; --teal-glow: rgba(98, 230, 214, 0.45); --amber: #ffb35c; --amber-glow: rgba(255, 179, 92, 0.45); --pink: #ff7ab8; --violet: #8b6cff; --red: #ff5d6c;
+  --f-display: 'Unbounded', 'Segoe UI', system-ui, sans-serif; --f-body: 'Golos Text', 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  --r: 18px; --r-lg: 26px; --wrap: 1200px; --gutter: clamp(16px, 4vw, 40px);
+  --header: 68px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header) + 12px); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 var(--f-body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: var(--teal); }
+::selection { background: var(--teal); color: #0b0918; }
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- шапка ---------- */
+.site-header { position: fixed; inset: 0 0 auto; z-index: 50; height: var(--header); transition: background .3s, border-color .3s, backdrop-filter .3s; border-bottom: 1px solid transparent; }
+/* без фона — лёгкая тень сверху, чтобы логотип читался на ярком небе */
+.site-header::before { content: ''; position: absolute; inset: 0 0 -24px; background: linear-gradient(180deg, rgba(11,9,24,.7), transparent); pointer-events: none; transition: opacity .3s; z-index: -1; }
+.site-header.solid::before { opacity: 0; }
+.site-header.solid { background: rgba(11, 9, 24, 0.78); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); border-bottom-color: var(--line); }
+.site-header .wrap { height: 100%; display: flex; align-items: center; gap: 18px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); flex: none; }
+.brand img { width: 36px; height: 36px; border-radius: 10px; box-shadow: 0 0 0 1px var(--line2), 0 4px 18px rgba(0,0,0,.35); }
+.brand span { font: 800 15px/1 var(--f-display); letter-spacing: .02em; white-space: nowrap; }
+.brand span b { color: var(--amber); font-weight: 800; }
+.nav { display: flex; gap: 4px; margin-left: auto; }
+.nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; padding: 8px 12px; border-radius: 99px; transition: color .2s, background .2s; }
+.nav a:hover { color: var(--ink); background: rgba(255,255,255,.06); }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.lang { display: flex; padding: 3px; border: 1px solid var(--line2); border-radius: 99px; }
+.lang button { background: none; border: 0; color: var(--muted); font: 600 12.5px/1 var(--f-body); padding: 7px 10px; border-radius: 99px; cursor: pointer; }
+.lang button.on { background: var(--ink); color: #0b0918; }
+.menu-btn { display: none; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line2); background: rgba(255,255,255,.04); color: var(--ink); cursor: pointer; }
+.menu-btn span, .menu-btn span::before, .menu-btn span::after { display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; margin: 0 auto; position: relative; transition: transform .25s, opacity .2s; }
+.menu-btn span::before, .menu-btn span::after { content: ''; position: absolute; left: 0; }
+.menu-btn span::before { top: -6px; } .menu-btn span::after { top: 6px; }
+.menu-open .menu-btn span { background: transparent; }
+.menu-open .menu-btn span::before { transform: translateY(6px) rotate(45deg); }
+.menu-open .menu-btn span::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* ---------- кнопки ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 16px; border: 0;
+  font: 600 16px/1.1 var(--f-body); text-decoration: none; cursor: pointer; transition: transform .15s, box-shadow .2s, background .2s; white-space: nowrap; }
+.btn:active { transform: scale(.97); }
+.btn-play { background: linear-gradient(180deg, #ffd27a, #f29a35); color: #2a1404; box-shadow: 0 10px 30px -8px var(--amber-glow), inset 0 1px 0 rgba(255,255,255,.5); padding-left: 10px; }
+.btn-play img { width: 36px; height: 36px; border-radius: 10px; }
+.btn-play small { display: block; font-size: 11.5px; font-weight: 600; opacity: .75; letter-spacing: .04em; text-transform: uppercase; }
+.btn-play b { display: block; font: 800 15.5px/1.2 var(--f-display); }
+.btn-play .txt { text-align: left; }
+.btn-ghost { background: rgba(255,255,255,.07); color: var(--ink); border: 1px solid var(--line2); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.btn-teal { background: var(--teal); color: #072320; box-shadow: 0 10px 30px -10px var(--teal-glow); }
+.btn-sm { min-height: 42px; padding: 0 16px; border-radius: 12px; font-size: 14.5px; }
+@media (hover: hover) {
+  .btn-play:hover { box-shadow: 0 14px 40px -6px var(--amber-glow), inset 0 1px 0 rgba(255,255,255,.5); transform: translateY(-1px); }
+  .btn-ghost:hover { background: rgba(255,255,255,.12); }
+  .btn-teal:hover { box-shadow: 0 14px 40px -8px var(--teal-glow); transform: translateY(-1px); }
+}
+.icon { width: 20px; height: 20px; flex: none; }
+
+/* ---------- секции ---------- */
+section { position: relative; }
+.sec { padding: clamp(72px, 10vw, 128px) 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 600 12.5px/1.45 var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--amber); }
+.eyebrow::before { content: ''; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
+.h2 { font: 800 clamp(28px, 4.6vw, 52px)/1.08 var(--f-display); letter-spacing: -.01em; margin: 14px 0 16px; text-wrap: balance; }
+.h2 em { font-style: normal; color: var(--teal); }
+.lead { color: var(--muted); font-size: clamp(16px, 1.6vw, 19px); max-width: 640px; margin: 0; text-wrap: pretty; }
+.sec-head { margin-bottom: clamp(32px, 5vw, 56px); }
+.sec-head.center { text-align: center; } .sec-head.center .lead { margin: 0 auto; }
+
+/* появление при прокрутке */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+/* ---------- подвал ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 40px 0 48px; color: var(--dim); font-size: 14.5px; background: #08061200; }
+.site-footer .wrap { display: flex; gap: 20px 32px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.site-footer nav { display: flex; gap: 6px 22px; flex-wrap: wrap; }
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--ink); }
+
+/* ---------- телефон ---------- */
+@media (max-width: 900px) {
+  .nav { position: fixed; top: var(--header); left: 0; right: 0; flex-direction: column; gap: 0; padding: 8px var(--gutter) 20px; background: rgba(11, 9, 24, 0.96);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); transform: translateY(-12px); opacity: 0; pointer-events: none; transition: opacity .2s, transform .25s; }
+  .menu-open .nav { transform: none; opacity: 1; pointer-events: auto; }
+  .nav a { font-size: 18px; padding: 14px 4px; border-radius: 0; border-bottom: 1px solid var(--line); }
+  .menu-btn { display: block; }
+  .header-actions .btn-sm { display: none; }
+  .site-header .wrap { gap: 10px; }
+  .header-actions { margin-left: auto; }
+}
+@media (max-width: 420px) { .brand span { font-size: 13px; } .brand img { width: 32px; height: 32px; } }

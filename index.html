@@ -2,36 +2,577 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="google-site-verification" content="yS6YFx8RRv8FCZzOX8rmSDJEStgGOywoS_yMSeMyLcc" />
-<title>AI CEO Tycoon — Red Pixels</title>
-<meta name="description" content="Run an AI lab from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend or its last mistake.">
+<title>AI CEO Tycoon — build an AI lab from a garage to AGI</title>
+<meta name="description" content="Run an AI startup from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend or its last mistake. Free on Android. 11 endings, 12 languages.">
+<meta name="theme-color" content="#0b0918">
+<link rel="canonical" href="https://reix88.github.io/aiceotycoon/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI CEO Tycoon">
+<meta property="og:title" content="AI CEO Tycoon — build an AI lab from a garage to AGI">
+<meta property="og:description" content="Will your AI save humanity — or end it? A solo-dev AI startup tycoon with 11 endings. Free on Android.">
+<meta property="og:image" content="https://reix88.github.io/aiceotycoon/assets/img/og.jpg">
+<meta property="og:url" content="https://reix88.github.io/aiceotycoon/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://reix88.github.io/aiceotycoon/assets/img/og.jpg">
+<link rel="icon" type="image/png" href="assets/img/icon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/unbounded-latin-800.woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-aspect-ratio: 4/5)">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "VideoGame", "name": "AI CEO Tycoon", "url": "https://reix88.github.io/aiceotycoon/",
+  "description": "Run an AI startup from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend or its last mistake.",
+  "image": "https://reix88.github.io/aiceotycoon/assets/img/og.jpg", "genre": ["Simulation", "Tycoon", "Strategy"], "gamePlatform": "Android",
+  "operatingSystem": "Android", "applicationCategory": "Game", "author": { "@type": "Organization", "name": "Red Pixels" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "inLanguage": ["en", "ru", "es", "pt", "de", "fr", "it", "tr", "id", "ja", "ko", "zh"],
+  "trailer": { "@type": "VideoObject", "name": "AI CEO Tycoon trailer", "embedUrl": "https://www.youtube.com/embed/rYHX1Z7GpcI", "thumbnailUrl": "https://i.ytimg.com/vi/rYHX1Z7GpcI/hqdefault.jpg", "uploadDate": "2026-10-06" } }
+</script>
 <style>
-  :root { --text: #ece6fb; --muted: #b3abcc; --accent: #62e6d6; --amber: #ffb35c; }
-  * { box-sizing: border-box; }
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; color: var(--text); text-align: center;
-    background: linear-gradient(180deg, #120f2a 0%, #3b2462 45%, #b0526e 78%, #ffaa6a 100%) fixed;
-    font: 17px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
-  main { max-width: 640px; padding: 40px 20px; }
-  h1 { font-size: clamp(34px, 8vw, 56px); margin: 0; letter-spacing: 0.02em; text-shadow: 0 0 24px rgba(98,230,214,0.4); }
-  h1 span { color: var(--amber); text-shadow: 0 0 24px rgba(255,179,92,0.5); }
-  p { margin: 16px 0; }
-  .cta { display: inline-block; margin-top: 12px; padding: 14px 26px; border-radius: 12px; background: var(--accent);
-    color: #0f0d1f; font-weight: 700; text-decoration: none; }
-  .links { margin-top: 28px; font-size: 15px; }
-  .links a { color: var(--text); margin: 0 10px; }
-  footer { margin-top: 36px; color: var(--muted); font-size: 14px; }
+/* ---------- первый экран ---------- */
+.hero { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: calc(var(--header) + 32px) 0 72px; overflow: hidden; isolation: isolate; }
+.hero picture, .hero picture img { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; }
+.hero picture img { object-fit: cover; object-position: 100% 50%; transform-origin: 100% 60%; animation: drift 26s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: scale(1.0); } to { transform: scale(1.06); } }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(11,9,24,.94) 0%, rgba(11,9,24,.86) 34%, rgba(11,9,24,.45) 52%, rgba(11,9,24,.05) 68%, transparent 78%), linear-gradient(0deg, var(--bg) 0%, transparent 22%); }
+.hero-inner { max-width: 640px; }
+.hero h1 { font: 800 clamp(36px, 6.4vw, 76px)/1.02 var(--f-display); letter-spacing: -.02em; margin: 18px 0 20px; text-wrap: balance; text-shadow: 0 4px 30px rgba(0,0,0,.4); }
+.hero h1 em { font-style: normal; display: block; background: linear-gradient(92deg, var(--amber), #ff8a7a 45%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p { color: #d7cff1; font-size: clamp(16.5px, 1.6vw, 20px); max-width: 560px; margin: 0 0 30px; text-shadow: 0 2px 16px rgba(0,0,0,.5); }
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.quiz-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: var(--teal); font-weight: 600; text-decoration: none; }
+.quiz-link:hover { text-decoration: underline; }
+.stats { display: flex; gap: 10px 28px; flex-wrap: wrap; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line2); max-width: 600px; }
+.stat b { display: block; font: 800 clamp(22px, 2.6vw, 30px)/1 var(--f-display); color: var(--ink); }
+.stat span { font-size: 13.5px; color: var(--muted); }
+.scroll-hint { position: absolute; left: 50%; bottom: 22px; translate: -50% 0; width: 26px; height: 42px; border: 2px solid var(--line2); border-radius: 14px; }
+.scroll-hint::after { content: ''; position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--ink); animation: wheel 1.8s ease-in-out infinite; }
+@keyframes wheel { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
+@media (max-aspect-ratio: 4/5) {
+  /* телефон: постер сверху, текст ниже — на тёмной части картинки */
+  .hero { display: block; padding-top: calc(var(--header) + 34svh); padding-bottom: 48px; }
+  .hero picture { height: 78svh; bottom: auto; }
+  .hero picture img { object-position: 50% 0%; animation: none; transform: none; }
+  .hero::before { background: linear-gradient(0deg, var(--bg) 25%, rgba(11,9,24,.9) 45%, rgba(11,9,24,.68) 60%, rgba(11,9,24,.2) 74%, transparent 84%); }
+  .scroll-hint { display: none; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+}
+
+/* ---------- скрытая шкала ---------- */
+.twist { background: radial-gradient(900px 500px at 85% 20%, rgba(139,108,255,.16), transparent 70%), radial-gradient(700px 400px at 10% 90%, rgba(255,93,108,.1), transparent 70%); }
+.twist-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.core { background: var(--panel); border: 1px solid var(--line2); border-radius: var(--r-lg); padding: clamp(22px, 3vw, 34px); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 30px 80px -30px rgba(0,0,0,.7); position: relative; overflow: hidden; }
+.core::before { content: ''; position: absolute; width: 260px; height: 260px; right: -80px; top: -90px; border-radius: 50%; background: radial-gradient(circle, rgba(98,230,214,.35), transparent 65%); filter: blur(10px); }
+.core-top { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; position: relative; }
+.orb { width: 54px; height: 54px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d8fff9, var(--teal) 40%, #0c5c57 75%); box-shadow: 0 0 30px var(--teal-glow); animation: pulse 3s ease-in-out infinite; flex: none; }
+.core.alarm .orb { background: radial-gradient(circle at 35% 30%, #ffe0e0, var(--red) 40%, #5c0c16 75%); box-shadow: 0 0 34px rgba(255,93,108,.6); }
+@keyframes pulse { 50% { transform: scale(1.06); } }
+.core-top b { font: 800 18px/1.2 var(--f-display); display: block; }
+.core-top small { color: var(--muted); font-size: 13.5px; }
+.meter { margin: 16px 0; position: relative; }
+.meter .row { display: flex; justify-content: space-between; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+.meter .row span:last-child { font-family: var(--f-display); font-weight: 800; }
+.bar { height: 12px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: inherit; width: 0; transition: width 1.4s cubic-bezier(.2,.7,.2,1); }
+.m-cap i { background: linear-gradient(90deg, #3fb8ab, var(--teal)); }
+.m-ali i { background: linear-gradient(90deg, #e08a2e, var(--amber)); }
+.m-awa i { background: repeating-linear-gradient(45deg, rgba(255,255,255,.12) 0 8px, rgba(255,255,255,.04) 8px 16px); width: 100%; }
+.m-awa .val { color: var(--dim); letter-spacing: .2em; }
+.core.alarm .m-awa i { background: linear-gradient(90deg, #ff9a5c, var(--red)); width: 0; }
+.core.alarm .m-awa .val { color: var(--red); letter-spacing: 0; }
+.core .reveal-btn { width: 100%; margin-top: 10px; }
+.core .warn { margin: 14px 0 0; color: var(--red); font-weight: 600; min-height: 1.6em; opacity: 0; transition: opacity .6s .9s; }
+.core.alarm .warn { opacity: 1; }
+.points { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+.points li { display: flex; gap: 12px; color: var(--muted); }
+.points li::before { content: ''; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px var(--amber-glow); flex: none; }
+
+/* ---------- возможности (бенто) ---------- */
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.tile { position: relative; border-radius: var(--r-lg); overflow: hidden; background: var(--panel-solid); border: 1px solid var(--line); min-height: 320px; display: flex; flex-direction: column; justify-content: flex-end; isolation: isolate; }
+.tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.tile::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(11,9,24,.96) 0%, rgba(11,9,24,.7) 38%, rgba(11,9,24,0) 72%); }
+@media (hover: hover) { .tile:hover img { transform: scale(1.05); } }
+.tile .body { padding: clamp(20px, 2.4vw, 28px); }
+.tile h3 { font: 800 clamp(19px, 1.9vw, 24px)/1.2 var(--f-display); margin: 0 0 8px; }
+.tile p { margin: 0; color: #cfc7ea; font-size: 15.5px; }
+.tile .tag { display: inline-block; font: 600 12px/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+.t-a { grid-column: span 4; min-height: 440px; } .t-b { grid-column: span 2; min-height: 440px; }
+.t-c, .t-d, .t-e { grid-column: span 2; } .t-f { grid-column: span 3; } .t-g { grid-column: span 3; }
+.t-b img { object-position: 50% 40%; }
+
+/* ---------- путь ---------- */
+.journey { background: linear-gradient(180deg, transparent, rgba(139,108,255,.07) 30%, rgba(255,122,184,.06) 70%, transparent); }
+.track-wrap { position: relative; }
+.track { display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 420px); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px var(--gutter) 22px;
+  margin: 0 calc(var(--gutter) * -1); scrollbar-width: thin; scrollbar-color: var(--line2) transparent; overscroll-behavior-x: contain; }
+.stage { scroll-snap-align: start; background: var(--panel-solid); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+.stage img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.stage .body { padding: 20px 22px 24px; }
+.stage .num { font: 800 13px/1 var(--f-display); color: var(--amber); letter-spacing: .1em; }
+.stage h3 { font: 800 21px/1.2 var(--f-display); margin: 10px 0 8px; }
+.stage p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.track-nav { display: flex; gap: 10px; justify-content: flex-end; margin-top: -8px; margin-bottom: 18px; }
+.round { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line2); background: rgba(255,255,255,.05); color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+.round:hover { background: rgba(255,255,255,.12); }
+.round:disabled { opacity: .35; cursor: default; }
+
+/* ---------- трейлер ---------- */
+.trailer { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line2); cursor: pointer; padding: 0; background: #000;
+  box-shadow: 0 40px 100px -40px rgba(139,108,255,.55); }
+.trailer img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s, filter .4s; }
+.trailer .play { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: clamp(72px, 9vw, 108px); height: clamp(72px, 9vw, 108px); border-radius: 50%;
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: grid; place-items: center; transition: transform .2s, background .2s; }
+.trailer .play svg { width: 38%; height: 38%; margin-left: 8%; color: #fff; }
+.trailer .lbl { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px; font: 800 clamp(15px, 1.6vw, 19px)/1.2 var(--f-display); text-align: left; background: linear-gradient(0deg, rgba(0,0,0,.7), transparent); color: #fff; }
+@media (hover: hover) { .trailer:hover img { transform: scale(1.03); filter: brightness(1.05); } .trailer:hover .play { transform: scale(1.06); background: var(--amber); } }
+
+/* ---------- концовки ---------- */
+.endings { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.end { position: relative; aspect-ratio: 3 / 4; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); background: var(--panel-solid); isolation: isolate; outline: none; }
+.end img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .7s, filter .5s; }
+.end::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(11,9,24,.95) 8%, rgba(11,9,24,.25) 55%, transparent); transition: background .4s; }
+.end .body { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px; }
+.end h3 { font: 800 clamp(15px, 1.5vw, 18px)/1.2 var(--f-display); margin: 0; }
+.end p { margin: 8px 0 0; font-size: 14px; color: #d6cff0; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .5s, opacity .4s; }
+.end:hover p, .end:focus p, .end.open p { max-height: 120px; opacity: 1; }
+.end:hover::after, .end:focus::after, .end.open::after { background: linear-gradient(0deg, rgba(11,9,24,.97) 25%, rgba(11,9,24,.55) 70%, rgba(11,9,24,.2)); }
+.end:hover img, .end.open img { transform: scale(1.06); }
+.end-cta { grid-column: span 1; aspect-ratio: 3 / 4; border-radius: var(--r); padding: 22px; display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(150deg, rgba(98,230,214,.18), rgba(139,108,255,.22) 50%, rgba(255,122,184,.2)); border: 1px solid var(--line2); text-decoration: none; color: var(--ink); }
+.end-cta b { font: 800 clamp(18px, 1.9vw, 24px)/1.2 var(--f-display); }
+.end-cta span { color: var(--teal); font-weight: 600; }
+
+/* ---------- обновление ---------- */
+.update { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; background: var(--panel); border: 1px solid var(--line2); border-radius: var(--r-lg); padding: clamp(14px, 2vw, 18px); overflow: hidden; }
+.update img { width: 100%; border-radius: calc(var(--r-lg) - 8px); aspect-ratio: 16 / 9; object-fit: cover; }
+.update .body { padding: clamp(8px, 2vw, 20px) clamp(8px, 2vw, 28px) clamp(14px, 2vw, 20px) 0; }
+.badge { display: inline-block; background: rgba(98,230,214,.14); color: var(--teal); border: 1px solid rgba(98,230,214,.35); border-radius: 99px; padding: 6px 12px; font: 600 12.5px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; }
+.update h3 { font: 800 clamp(22px, 2.6vw, 32px)/1.15 var(--f-display); margin: 14px 0 12px; }
+.update ul { color: var(--muted); padding-left: 20px; margin: 0; }
+.update li { margin: 6px 0; }
+
+/* ---------- скриншоты ---------- */
+.shots { display: grid; grid-auto-flow: column; grid-auto-columns: min(82vw, 560px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px var(--gutter) 22px; margin: 0 calc(var(--gutter) * -1);
+  scrollbar-width: thin; scrollbar-color: var(--line2) transparent; overscroll-behavior-x: contain; }
+.shots button { scroll-snap-align: center; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; padding: 0; cursor: zoom-in; background: #000; }
+.shots img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .5s; }
+@media (hover: hover) { .shots button:hover img { transform: scale(1.03); } }
+
+/* ---------- коты ---------- */
+.cats { text-align: center; padding: clamp(56px, 8vw, 96px) 0; overflow: hidden; }
+.cat-row { display: flex; justify-content: center; gap: clamp(4px, 2vw, 22px); margin-top: 28px; flex-wrap: wrap; }
+.cat-row img { width: clamp(84px, 13vw, 150px); height: auto; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); transition: transform .3s cubic-bezier(.3,1.6,.5,1); cursor: pointer; }
+.cat-row img:nth-child(odd) { animation: bob 4s ease-in-out infinite; } .cat-row img:nth-child(even) { animation: bob 4s ease-in-out infinite reverse; }
+@keyframes bob { 50% { transform: translateY(-8px) rotate(-2deg); } }
+.cat-row img:hover, .cat-row img.boop { animation: none; transform: scale(1.12) rotate(4deg); }
+.cat-say { margin-top: 18px; color: var(--muted); min-height: 1.6em; font-weight: 600; }
+
+/* ---------- финал ---------- */
+.final { position: relative; overflow: hidden; isolation: isolate; text-align: center; padding: clamp(96px, 14vw, 180px) 0; }
+.final img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .55; }
+.final::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, var(--bg) 0%, rgba(11,9,24,.55) 35%, rgba(11,9,24,.65) 70%, var(--bg) 100%); }
+.final .h2 { font-size: clamp(32px, 6vw, 68px); }
+.final .lead { margin: 0 auto 32px; }
+.langs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 34px; }
+.langs span { padding: 7px 13px; border-radius: 99px; background: rgba(255,255,255,.06); border: 1px solid var(--line); font-size: 14px; color: #d6cff0; }
+.contact { margin-top: 26px; color: var(--muted); font-size: 15px; }
+
+/* ---------- окна ---------- */
+.modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(5,4,12,.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.modal.open { display: flex; }
+.modal .box { width: min(1200px, 100%); position: relative; }
+.modal .frame { aspect-ratio: 16 / 9; width: 100%; border-radius: var(--r); overflow: hidden; background: #000; }
+.modal iframe { width: 100%; height: 100%; border: 0; }
+.modal .lb-img { max-height: 86vh; width: auto; max-width: 100%; margin: 0 auto; border-radius: var(--r); }
+.modal .x { position: absolute; top: -56px; right: 0; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line2); background: rgba(255,255,255,.08); color: #fff; font-size: 24px; cursor: pointer; }
+
+/* ---------- адаптивность ---------- */
+@media (max-width: 1024px) {
+  .endings { grid-template-columns: repeat(3, 1fr); }
+  .t-a { grid-column: span 6; } .t-b { grid-column: span 6; min-height: 380px; }
+  .t-c, .t-d, .t-e { grid-column: span 3; } .t-e { grid-column: span 6; }
+}
+@media (max-width: 820px) {
+  .twist-grid, .update { grid-template-columns: 1fr; }
+  .update .body { padding: 6px 10px 14px; }
+}
+@media (max-width: 640px) {
+  .bento { gap: 12px; } .tile, .t-a, .t-b { grid-column: span 6; min-height: 340px; }
+  .endings { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .end .body { padding: 12px; } .end p { font-size: 13px; }
+  .cta-row .btn { flex: 1 1 100%; }
+  .stats { gap: 14px 22px; }
+  .track-nav { display: none; }
+  .modal .x { top: -54px; }
+}
 </style>
 </head>
 <body>
-<main>
-  <h1>AI CEO <span>TYCOON</span></h1>
-  <p>Run an AI lab from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend
-  or its last mistake.</p>
-  <a class="cta" href="https://play.google.com/store/apps/details?id=com.redpixels.aiceotycoon">Google Play</a>
-  <p><a href="quiz/" style="color: var(--amber)">🐈‍⬛ Quiz: which of the 11 endings would you get?</a></p>
-  <div class="links"><a href="privacy/">Privacy Policy</a><a href="privacy/#ru">Политика конфиденциальности</a></div>
-  <footer>© 2026 Red Pixels</footer>
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="AI CEO Tycoon"><img src="assets/img/icon-64.png" alt="" width="36" height="36"><span>AI CEO <b>TYCOON</b></span></a>
+    <nav class="nav" id="nav">
+      <a href="#twist" data-i="nav.twist">The twist</a>
+      <a href="#features" data-i="nav.features">Features</a>
+      <a href="#journey" data-i="nav.journey">Journey</a>
+      <a href="#endings" data-i="nav.endings">Endings</a>
+      <a href="quiz/" data-i="nav.quiz">Quiz</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="ru">RU</button></div>
+      <a class="btn btn-teal btn-sm play-link" href="#" data-i="cta.short">Play free</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ПЕРВЫЙ ЭКРАН -->
+  <section class="hero">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="assets/img/hero-m.webp">
+      <img src="assets/img/hero.webp" alt="" fetchpriority="high">
+    </picture>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow" data-i="hero.eyebrow">AI startup tycoon · Free on Android</span>
+        <h1 data-ih="hero.title">Build an AI lab.<em>Decide what it becomes.</em></h1>
+        <p data-i="hero.text">Start in your parents’ garage with a laptop and a cat. Grow to a campus, data centers around the world and megaprojects in orbit — and choose whether your AI becomes humanity’s best friend or its last mistake.</p>
+        <div class="cta-row">
+          <a class="btn btn-play play-link" href="#"><img src="assets/img/icon-64.png" alt="" width="36" height="36"><span class="txt"><small data-i="cta.free">Free on</small><b>Google Play</b></span></a>
+          <button class="btn btn-ghost" data-trailer><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/></svg><span data-i="cta.trailer">Watch trailer</span></button>
+        </div>
+        <a class="quiz-link" href="quiz/"><span data-i="hero.quiz">🐈 Which of the 11 endings would you get? Take the 1-minute quiz →</span></a>
+        <div class="stats">
+          <div class="stat"><b>11</b><span data-i="stat.endings">endings</span></div>
+          <div class="stat"><b>~200</b><span data-i="stat.events">story events</span></div>
+          <div class="stat"><b>12</b><span data-i="stat.langs">languages</span></div>
+          <div class="stat"><b>1</b><span data-i="stat.cat">suspicious cat</span></div>
+        </div>
+      </div>
+    </div>
+    <span class="scroll-hint" aria-hidden="true"></span>
+  </section>
+
+  <!-- ГЛАВНАЯ ФИШКА -->
+  <section class="sec twist" id="twist">
+    <div class="wrap twist-grid">
+      <div class="reveal">
+        <span class="eyebrow" data-i="twist.eyebrow">The twist</span>
+        <h2 class="h2" data-ih="twist.title">Your AI’s awareness is <em>hidden</em>.</h2>
+        <p class="lead" data-i="twist.text">You only see it if you pay for safety research — and safety costs time and money while rival labs ship faster. Most players don’t look until it’s too late.</p>
+        <ul class="points">
+          <li data-i="twist.p1">Train models generation by generation and race rivals in benchmarks.</li>
+          <li data-i="twist.p2">Later your AI starts talking to you — and remembers how you treated it.</li>
+          <li data-i="twist.p3">Give compute to safety, or ship first and hope. Every choice has a price.</li>
+        </ul>
+      </div>
+      <div class="core reveal" id="core">
+        <div class="core-top"><span class="orb"></span><div><b data-i="core.name">Nova-7 · Tier 8</b><small data-i="core.sub">Your model, minutes after release</small></div></div>
+        <div class="meter m-cap"><div class="row"><span data-i="core.cap">Capability</span><span>92</span></div><div class="bar"><i data-w="92"></i></div></div>
+        <div class="meter m-ali"><div class="row"><span data-i="core.ali">Alignment</span><span>61</span></div><div class="bar"><i data-w="61"></i></div></div>
+        <div class="meter m-awa"><div class="row"><span data-i="core.awa">Awareness</span><span class="val" id="awaVal">???</span></div><div class="bar"><i id="awaBar"></i></div></div>
+        <button class="btn btn-ghost reveal-btn" id="revealBtn" data-i="core.btn">Fund interpretability research — reveal</button>
+        <p class="warn" data-i="core.warn">78%. The office cat stopped sleeping in the server room weeks ago.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ВОЗМОЖНОСТИ -->
+  <section class="sec" id="features">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i="feat.eyebrow">What you do</span>
+        <h2 class="h2" data-ih="feat.title">Run the company. <em>Shape the future.</em></h2>
+        <p class="lead" data-i="feat.text">A deep management sim in short sessions: research, funding rounds, hiring, products, hype — and story choices with real consequences.</p>
+      </div>
+      <div class="bento">
+        <article class="tile t-a reveal"><img loading="lazy" src="assets/img/act1.webp" alt=""><div class="body"><span class="tag" data-i="f1.tag">Grow</span><h3 data-i="f1.t">From a garage to orbit</h3><p data-i="f1.d">Move from your parents’ garage to a coworking space, an office tower, your own building and a campus — then data centers on every continent and megaprojects in space.</p></div></article>
+        <article class="tile t-b reveal"><img loading="lazy" src="assets/img/agi.webp" alt=""><div class="body"><span class="tag" data-i="f2.tag">Build</span><h3 data-i="f2.t">Train your own AI</h3><p data-i="f2.d">Name it, train it, release it and compare benchmarks with rival labs.</p></div></article>
+        <article class="tile t-c reveal"><img loading="lazy" src="assets/img/act4.webp" alt=""><div class="body"><span class="tag" data-i="f3.tag">Compete</span><h3 data-i="f3.t">Race rival labs</h3><p data-i="f3.d">A hype visionary, a corporate giant, a rocket billionaire, safety purists and a state lab with no brakes.</p></div></article>
+        <article class="tile t-d reveal"><img loading="lazy" src="assets/img/senate.webp" alt=""><div class="body"><span class="tag" data-i="f4.tag">Decide</span><h3 data-i="f4.t">A world that reacts</h3><p data-i="f4.d">Board coups, Senate hearings, protests under your windows and a social feed that explodes with every release.</p></div></article>
+        <article class="tile t-e reveal"><img loading="lazy" src="assets/img/shot-garage.webp" alt=""><div class="body"><span class="tag" data-i="f5.tag">Relax</span><h3 data-i="f5.t">Play your way</h3><p data-i="f5.d">Real-time timers and offline progress: five minutes on the bus or a whole evening.</p></div></article>
+        <article class="tile t-f reveal"><img loading="lazy" src="assets/img/founder.webp" style="object-position: 18% 50%" alt=""><div class="body"><span class="tag" data-i="f6.tag">Trust</span><h3 data-i="f6.t">The office cat</h3><p data-i="f6.d">It senses AI anomalies before humans do. Always trust the cat.</p></div></article>
+        <article class="tile t-g reveal"><img loading="lazy" src="assets/img/act2.webp" alt=""><div class="body"><span class="tag" data-i="f7.tag">Fair</span><h3 data-i="f7.t">Free, no pay-to-win</h3><p data-i="f7.d">No loot boxes. The whole game — all 11 endings — is beatable without paying.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПУТЬ -->
+  <section class="sec journey" id="journey">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i="j.eyebrow">The journey</span>
+        <h2 class="h2" data-ih="j.title">Six stages. <em>One question at the end.</em></h2>
+      </div>
+      <div class="track-nav"><button class="round" id="jPrev" aria-label="Previous"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button><button class="round" id="jNext" aria-label="Next"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      <div class="track" id="track">
+        <article class="stage"><img loading="lazy" src="assets/img/act1.webp" alt=""><div class="body"><span class="num">01</span><h3 data-i="j1.t">The garage</h3><p data-i="j1.d">A laptop, a cat and a rainy night. Your first model, your first users.</p></div></article>
+        <article class="stage"><img loading="lazy" src="assets/img/act2.webp" alt=""><div class="body"><span class="num">02</span><h3 data-i="j2.t">Coworking</h3><p data-i="j2.d">A demo day, the first investors, the first hires. Ship or die.</p></div></article>
+        <article class="stage"><img loading="lazy" src="assets/img/act3.webp" alt=""><div class="body"><span class="num">03</span><h3 data-i="j3.t">Your own building</h3><p data-i="j3.d">Server rooms, research labs and a board of directors that can fire you.</p></div></article>
+        <article class="stage"><img loading="lazy" src="assets/img/act4.webp" alt=""><div class="body"><span class="num">04</span><h3 data-i="j4.t">The frontier</h3><p data-i="j4.d">Data centers worldwide, Senate hearings, rival labs racing you to AGI.</p></div></article>
+        <article class="stage"><img loading="lazy" src="assets/img/act5.webp" alt=""><div class="body"><span class="num">05</span><h3 data-i="j5.t">Singularity</h3><p data-i="j5.d">AGI. Then ASI. And one last question only your AI can ask.</p></div></article>
+        <article class="stage"><img loading="lazy" src="assets/img/mega.webp" alt=""><div class="body"><span class="num">06</span><h3 data-i="j6.t">Beyond Earth</h3><p data-i="j6.d">Orbital data centers, a lunar base, Mars — and a Dyson swarm around the Sun.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТРЕЙЛЕР -->
+  <section class="sec" id="trailer" style="padding-top: 0">
+    <div class="wrap reveal">
+      <button class="trailer" data-trailer aria-label="Play trailer">
+        <img loading="lazy" src="assets/img/cutaway.webp" alt="">
+        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/></svg></span>
+        <span class="lbl" data-i="trailer.lbl">Watch the trailer · 0:30</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- КОНЦОВКИ -->
+  <section class="sec" id="endings">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow" data-i="e.eyebrow">11 endings</span>
+        <h2 class="h2" data-ih="e.title">Golden Age or Judgment Day? <em>You decide.</em></h2>
+        <p class="lead" data-i="e.text">Your choices, your safety budget and how you treated your AI decide which world you leave behind. Tap an ending to read it.</p>
+      </div>
+      <div class="endings" id="endGrid"></div>
+    </div>
+  </section>
+
+  <!-- ОБНОВЛЕНИЕ -->
+  <section class="sec" style="padding-top: 0">
+    <div class="wrap">
+      <div class="update reveal">
+        <img loading="lazy" src="assets/img/projects.webp" alt="">
+        <div class="body">
+          <span class="badge" data-i="u.badge">New · Update 1.0.2</span>
+          <h3 data-i="u.title">Projects for Humanity</h3>
+          <ul>
+            <li data-i="u.1">Spare compute? Cure diseases, map the climate, clean the oceans — eight projects that save lives and calm the world.</li>
+            <li data-i="u.2">Give up to 30% of your compute to safety research.</li>
+            <li data-i="u.3">Train ASI and decide yourself when it asks the final question.</li>
+            <li data-i="u.4">Clear data center upgrade prices and fundamental science from Act 5.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- СКРИНШОТЫ -->
+  <section class="sec" id="screens" style="padding-top: 0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow" data-i="s.eyebrow">Screenshots</span><h2 class="h2" data-ih="s.title">Lo-fi sunsets. <em>Neon servers.</em></h2></div>
+      <div class="shots" id="shots">
+        <button><img loading="lazy" src="assets/img/card-ceo.webp" alt="Start in your parents' garage"></button>
+        <button><img loading="lazy" src="assets/img/card-ai.webp" alt="Train your own AI"></button>
+        <button><img loading="lazy" src="assets/img/card-cat.webp" alt="Every choice has a price"></button>
+        <button><img loading="lazy" src="assets/img/shot-train.webp" alt="Training screen"></button>
+        <button><img loading="lazy" src="assets/img/shot-ai.webp" alt="Your AI speaks"></button>
+        <button><img loading="lazy" src="assets/img/shot-cat.webp" alt="The cat event"></button>
+        <button><img loading="lazy" src="assets/img/cutaway.webp" alt="The campus in cutaway"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОТЫ -->
+  <section class="cats">
+    <div class="wrap">
+      <span class="eyebrow" data-i="c.eyebrow">Mascot</span>
+      <h2 class="h2" data-i="c.title">Always trust the cat.</h2>
+      <div class="cat-row" id="cats">
+        <img loading="lazy" src="assets/img/cat/suspicious.webp" alt="" data-say="0">
+        <img loading="lazy" src="assets/img/cat/meow.webp" alt="" data-say="1">
+        <img loading="lazy" src="assets/img/cat/sleepy.webp" alt="" data-say="2">
+        <img loading="lazy" src="assets/img/cat/shocked.webp" alt="" data-say="3">
+        <img loading="lazy" src="assets/img/cat/proud.webp" alt="" data-say="4">
+        <img loading="lazy" src="assets/img/cat/wave.webp" alt="" data-say="5">
+      </div>
+      <p class="cat-say" id="catSay" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ФИНАЛ -->
+  <section class="final">
+    <img class="bg" loading="lazy" src="assets/img/act5.webp" alt="">
+    <div class="wrap reveal">
+      <span class="eyebrow" data-i="fin.eyebrow">Free on Android</span>
+      <h2 class="h2" data-i="fin.title">Your garage is waiting.</h2>
+      <p class="lead" data-i="fin.text">Free to play. No loot boxes, no pay-to-win. Twelve languages. One cat.</p>
+      <div class="cta-row" style="justify-content: center">
+        <a class="btn btn-play play-link" href="#"><img src="assets/img/icon-64.png" alt="" width="36" height="36"><span class="txt"><small data-i="cta.free">Free on</small><b>Google Play</b></span></a>
+        <a class="btn btn-ghost" href="quiz/" data-i="fin.quiz">Take the ending quiz</a>
+      </div>
+      <div class="langs"><span>English</span><span>Русский</span><span>Español</span><span>Português</span><span>Deutsch</span><span>Français</span><span>Italiano</span><span>Türkçe</span><span>Bahasa Indonesia</span><span>日本語</span><span>한국어</span><span>繁體中文</span></div>
+      <p class="contact"><span data-i="fin.contact">Press & feedback:</span> <a href="mailto:thepenguin320@gmail.com">thepenguin320@gmail.com</a></p>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/img/icon-64.png" alt="" width="36" height="36"><span>AI CEO <b>TYCOON</b></span></a>
+    <nav>
+      <a class="play-link" href="#">Google Play</a>
+      <a href="quiz/" data-i="nav.quiz">Quiz</a>
+      <a href="privacy/" data-i="foot.privacy">Privacy Policy</a>
+      <a href="mailto:thepenguin320@gmail.com">Email</a>
+    </nav>
+    <span>© 2026 Red Pixels · <span data-i="foot.solo">a one-person studio</span></span>
+  </div>
+</footer>
+
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Trailer"><div class="box"><button class="x" data-close aria-label="Close">×</button><div class="frame" id="videoFrame"></div></div></div>
+<div class="modal" id="imgModal" role="dialog" aria-modal="true" aria-label="Screenshot"><div class="box"><button class="x" data-close aria-label="Close">×</button><img class="lb-img" id="lbImg" alt=""></div></div>
+
+<script src="quiz/quiz-data.js"></script>
+<script>
+'use strict';
+const PLAY = 'https://play.google.com/store/apps/details?id=com.redpixels.aiceotycoon';
+const TRAILER = 'rYHX1Z7GpcI';
+const RU = {
+  'nav.twist': 'Фишка', 'nav.features': 'Возможности', 'nav.journey': 'Путь', 'nav.endings': 'Концовки', 'nav.quiz': 'Тест',
+  'cta.short': 'Играть', 'cta.free': 'Бесплатно в', 'cta.trailer': 'Смотреть трейлер',
+  'hero.eyebrow': 'Тайкун про ИИ-стартап · Бесплатно на Android',
+  'hero.title': 'Построй ИИ-лабораторию.<em>Реши, кем она станет.</em>',
+  'hero.text': 'Начни в гараже родителей с ноутбуком и котом. Дорасти до кампуса, дата-центров по всему миру и мегапроектов на орбите — и реши, станет ли твой ИИ лучшим другом человечества или его последней ошибкой.',
+  'hero.quiz': '🐈 Какая из 11 концовок выпадет тебе? Тест на минуту →',
+  'stat.endings': 'концовок', 'stat.events': 'сюжетных событий', 'stat.langs': 'языков', 'stat.cat': 'подозрительный кот',
+  'twist.eyebrow': 'Главная фишка', 'twist.title': 'Осознанность твоего ИИ <em>скрыта</em>.',
+  'twist.text': 'Ты увидишь её, только если вложишься в исследования безопасности, — а безопасность стоит денег и времени, пока конкуренты выпускают модели быстрее. Большинство игроков смотрят слишком поздно.',
+  'twist.p1': 'Обучай модели поколение за поколением и соревнуйся с конкурентами в бенчмарках.',
+  'twist.p2': 'Однажды ИИ заговорит с тобой — и запомнит каждое твоё решение о нём.',
+  'twist.p3': 'Отдай мощность безопасности или выпусти первым и надейся. У каждого выбора есть цена.',
+  'core.name': 'Nova-7 · Tier 8', 'core.sub': 'Твоя модель через минуту после выпуска', 'core.cap': 'Способности', 'core.ali': 'Согласованность', 'core.awa': 'Осознанность',
+  'core.btn': 'Профинансировать интерпретируемость — узнать', 'core.warn': '78%. Офисный кот перестал спать в серверной ещё несколько недель назад.',
+  'feat.eyebrow': 'Что ты делаешь', 'feat.title': 'Управляй компанией. <em>Решай будущее.</em>',
+  'feat.text': 'Глубокий симулятор в коротких сессиях: исследования, раунды, найм, продукты, хайп — и сюжетные решения с настоящими последствиями.',
+  'f1.tag': 'Расти', 'f1.t': 'От гаража до орбиты', 'f1.d': 'Переезжай из гаража родителей в коворкинг, офисную башню, своё здание и кампус — а потом строй дата-центры на всех континентах и мегапроекты в космосе.',
+  'f2.tag': 'Создавай', 'f2.t': 'Обучи свой ИИ', 'f2.d': 'Дай имя, обучи, выпусти и сравни бенчмарки с конкурентами.',
+  'f3.tag': 'Соревнуйся', 'f3.t': 'Гонка лабораторий', 'f3.d': 'Хайповый визионер, корпоративный гигант, миллиардер с ракетами, пуристы безопасности и государственная лаборатория без тормозов.',
+  'f4.tag': 'Решай', 'f4.t': 'Мир, который отвечает', 'f4.d': 'Перевороты в совете директоров, слушания в Сенате, протесты под окнами и лента, которая взрывается после каждого релиза.',
+  'f5.tag': 'Отдыхай', 'f5.t': 'Играй как удобно', 'f5.d': 'Таймеры в реальном времени и прогресс без тебя: пять минут в автобусе или целый вечер.',
+  'f6.tag': 'Доверяй', 'f6.t': 'Офисный кот', 'f6.d': 'Он чувствует аномалии ИИ раньше людей. Всегда доверяй коту.',
+  'f7.tag': 'Честно', 'f7.t': 'Бесплатно и без доната для победы', 'f7.d': 'Никаких лутбоксов. Всю игру — все 11 концовок — можно пройти, не заплатив.',
+  'j.eyebrow': 'Путь', 'j.title': 'Шесть этапов. <em>Один вопрос в конце.</em>',
+  'j1.t': 'Гараж', 'j1.d': 'Ноутбук, кот и дождливый вечер. Первая модель, первые пользователи.',
+  'j2.t': 'Коворкинг', 'j2.d': 'Демо-день, первые инвесторы, первые сотрудники. Выпусти или умри.',
+  'j3.t': 'Своё здание', 'j3.d': 'Серверные, лаборатории и совет директоров, который может тебя уволить.',
+  'j4.t': 'Фронтир', 'j4.d': 'Дата-центры по всему миру, слушания в Сенате, конкуренты в гонке к AGI.',
+  'j5.t': 'Сингулярность', 'j5.d': 'AGI. Потом ASI. И последний вопрос, который может задать только твой ИИ.',
+  'j6.t': 'За пределами Земли', 'j6.d': 'Орбитальные дата-центры, лунная база, Марс — и рой Дайсона вокруг Солнца.',
+  'trailer.lbl': 'Смотреть трейлер · 0:30',
+  'e.eyebrow': '11 концовок', 'e.title': 'Золотой век или Судный день? <em>Решать тебе.</em>',
+  'e.text': 'Твои решения, бюджет на безопасность и твоё отношение к своему ИИ решают, какой мир останется после тебя. Нажми на концовку, чтобы прочитать.',
+  'e.cta': 'Какая выпадет тебе?', 'e.cta2': 'Пройти тест →',
+  'u.badge': 'Новое · обновление 1.0.2', 'u.title': 'Проекты для человечества',
+  'u.1': 'Лишняя мощность? Лечи болезни, моделируй климат, очищай океан — восемь проектов, которые спасают жизни и успокаивают мир.',
+  'u.2': 'Отдай до 30% мощности на исследования безопасности.', 'u.3': 'Обучи ASI и сам реши, когда он задаст последний вопрос.', 'u.4': 'Понятные цены улучшений дата-центров и фундаментальная наука с 5 акта.',
+  's.eyebrow': 'Скриншоты', 's.title': 'Лоу-фай закаты. <em>Неоновые серверы.</em>',
+  'c.eyebrow': 'Талисман', 'c.title': 'Всегда доверяй коту.',
+  'fin.eyebrow': 'Бесплатно на Android', 'fin.title': 'Твой гараж ждёт.', 'fin.text': 'Бесплатно. Без лутбоксов и доната для победы. Двенадцать языков. Один кот.',
+  'fin.quiz': 'Пройти тест концовок', 'fin.contact': 'Пресса и отзывы:', 'foot.privacy': 'Политика конфиденциальности', 'foot.solo': 'студия из одного человека',
+};
+const CAT_SAY = {
+  en: ['…I saw what the model did at 3 a.m.', 'MEOW. (The servers are too warm.)', 'Asleep on the warmest rack. Do not disturb.', 'It said my name. I never told it my name.', 'Shipped. With zero bugs. You’re welcome.', 'Hi! Go play the game, human.'],
+  ru: ['…я видел, что модель делала в 3 часа ночи.', 'МЯУ. (Серверы слишком горячие.)', 'Сплю на самой тёплой стойке. Не будить.', 'Она назвала моё имя. Я ей его не говорил.', 'Выпустил. Ноль багов. Пожалуйста.', 'Привет! Иди играть, человек.'],
+};
+const EN = {};
+document.querySelectorAll('[data-i]').forEach((el) => (EN[el.dataset.i] = el.textContent));
+document.querySelectorAll('[data-ih]').forEach((el) => (EN[el.dataset.ih] = el.innerHTML));
+EN['e.cta'] = 'Which one would you get?'; EN['e.cta2'] = 'Take the quiz →';
+
+let lang = 'en';
+try { lang = localStorage.getItem('site.lang') || ''; } catch (e) { lang = ''; }
+if (!lang) lang = (navigator.language || 'en').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+const params = new URLSearchParams(location.search);
+if (params.get('lang') === 'ru' || params.get('lang') === 'en') lang = params.get('lang');
+
+const playUrl = (src) => `${PLAY}&referrer=${encodeURIComponent(`utm_source=site&utm_medium=web&utm_campaign=${src}`)}`;
+document.querySelectorAll('.play-link').forEach((a, i) => { a.href = playUrl(['header', 'hero', 'final', 'footer'][i] || 'site'); a.target = '_blank'; a.rel = 'noopener'; });
+
+function t(k) { return lang === 'ru' ? (RU[k] ?? EN[k]) : EN[k]; }
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i]').forEach((el) => { const v = t(el.dataset.i); if (v != null) el.textContent = v; });
+  document.querySelectorAll('[data-ih]').forEach((el) => { const v = t(el.dataset.ih); if (v != null) el.innerHTML = v; });
+  document.querySelectorAll('.lang button').forEach((b) => b.classList.toggle('on', b.dataset.l === lang));
+  document.querySelectorAll('a[href^="quiz/"]').forEach((a) => (a.href = 'quiz/' + (lang === 'ru' ? '?lang=ru' : '?lang=en')));
+  renderEndings();
+}
+document.querySelectorAll('.lang button').forEach((b) => (b.onclick = () => { lang = b.dataset.l; try { localStorage.setItem('site.lang', lang); } catch (e) { /* нет */ } applyLang(); }));
+
+/* концовки — тексты из теста (quiz/quiz-data.js) */
+function renderEndings() {
+  const Q = window.QUIZ; if (!Q) return;
+  const order = ['golden_age', 'stars', 'garden', 'merge', 'button', 'not_you', 'corpocracy', 'state_control', 'doomsday', 'madness', 'bankrupt'];
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  document.getElementById('endGrid').innerHTML = order.map((id) => {
+    const e = Q.endings[id][lang] || Q.endings[id].en; const img = (Q.endings[id].img || id);
+    return `<div class="end" tabindex="0"><img loading="lazy" src="assets/img/end/${img}.webp" alt=""><div class="body"><h3>${esc(e[0])}</h3><p>${esc(e[1])}</p></div></div>`;
+  }).join('') + `<a class="end-cta" href="quiz/${lang === 'ru' ? '?lang=ru' : '?lang=en'}"><b>${esc(t('e.cta'))}</b><span>${esc(t('e.cta2'))}</span></a>`;
+  document.querySelectorAll('.end').forEach((el) => (el.onclick = () => { const was = el.classList.contains('open'); document.querySelectorAll('.end.open').forEach((x) => x.classList.remove('open')); if (!was) el.classList.add('open'); }));
+}
+
+/* шапка и меню */
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('solid', scrollY > 24 || document.body.classList.contains('menu-open'));
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+const menuBtn = document.getElementById('menuBtn');
+menuBtn.onclick = () => { const o = document.body.classList.toggle('menu-open'); menuBtn.setAttribute('aria-expanded', o); onScroll(); };
+document.querySelectorAll('#nav a').forEach((a) => a.addEventListener('click', () => { document.body.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded', 'false'); onScroll(); }));
+
+/* появление при прокрутке + шкалы */
+const io = new IntersectionObserver((ents) => ents.forEach((en) => {
+  if (!en.isIntersecting) return;
+  en.target.classList.add('in');
+  en.target.querySelectorAll('.bar i[data-w]').forEach((i) => (i.style.width = i.dataset.w + '%'));
+  io.unobserve(en.target);
+}), { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+/* скрытая Осознанность */
+const core = document.getElementById('core');
+document.getElementById('revealBtn').onclick = (ev) => {
+  core.classList.add('alarm');
+  const bar = document.getElementById('awaBar'), val = document.getElementById('awaVal');
+  requestAnimationFrame(() => requestAnimationFrame(() => (bar.style.width = '78%')));
+  let n = 0; const tick = setInterval(() => { n += 3; val.textContent = Math.min(n, 78) + '%'; if (n >= 78) clearInterval(tick); }, 30);
+  ev.currentTarget.disabled = true; ev.currentTarget.style.opacity = '.5';
+};
+
+/* путь: стрелки */
+const track = document.getElementById('track');
+const step = () => track.querySelector('.stage').getBoundingClientRect().width + 18;
+document.getElementById('jPrev').onclick = () => track.scrollBy({ left: -step(), behavior: 'smooth' });
+document.getElementById('jNext').onclick = () => track.scrollBy({ left: step(), behavior: 'smooth' });
+const navState = () => { document.getElementById('jPrev').disabled = track.scrollLeft < 8; document.getElementById('jNext').disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 8; };
+track.addEventListener('scroll', navState, { passive: true }); addEventListener('resize', navState); navState();
+
+/* окна: трейлер и скриншоты */
+const vm = document.getElementById('videoModal'), im = document.getElementById('imgModal');
+const open = (m) => { m.classList.add('open'); document.body.style.overflow = 'hidden'; };
+const close = () => { [vm, im].forEach((m) => m.classList.remove('open')); document.getElementById('videoFrame').innerHTML = ''; document.body.style.overflow = ''; };
+document.querySelectorAll('[data-trailer]').forEach((b) => (b.onclick = () => {
+  document.getElementById('videoFrame').innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${TRAILER}?autoplay=1&rel=0&playsinline=1" title="AI CEO Tycoon trailer" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  open(vm);
+}));
+document.querySelectorAll('#shots button').forEach((b) => (b.onclick = () => { const img = b.querySelector('img'); const lb = document.getElementById('lbImg'); lb.src = img.src; lb.alt = img.alt; open(im); }));
+[vm, im].forEach((m) => m.addEventListener('click', (e) => { if (e.target === m || e.target.closest('[data-close]')) close(); }));
+addEventListener('keydown', (e) => { if (e.key === 'Escape') { close(); document.body.classList.remove('menu-open'); onScroll(); } });
+
+/* коты */
+document.querySelectorAll('#cats img').forEach((img) => (img.onclick = () => {
+  document.getElementById('catSay').textContent = CAT_SAY[lang][+img.dataset.say];
+  img.classList.add('boop'); setTimeout(() => img.classList.remove('boop'), 400);
+}));
+
+applyLang();
+</script>
 </body>
 </html>
