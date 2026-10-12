@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which AI CEO Tycoon ending would you get? — Quiz</title>
+<meta name="description" content="9 dilemmas from the game. One minute. Will your AI save humanity — or end it? Find out which of 11 endings you'd get.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Which AI ending would you get?">
+<meta property="og:description" content="9 dilemmas, 1 minute, 11 possible endings. Will your AI save humanity — or end it?">
+<meta property="og:image" content="https://reix88.github.io/aiceotycoon/quiz/img/cover.jpg">
+<meta property="og:url" content="https://reix88.github.io/aiceotycoon/quiz/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://reix88.github.io/aiceotycoon/quiz/img/cover.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐈‍⬛</text></svg>">
+<style>
+  :root { --text: #ece6fb; --muted: #b9b0d6; --accent: #62e6d6; --amber: #ffb35c; --card: rgba(18, 14, 38, 0.72); --line: rgba(255, 255, 255, 0.14); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; color: var(--text); font: 17px/1.55 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    background: linear-gradient(180deg, #120f2a 0%, #2c1b4f 40%, #7a3a6a 75%, #d9774f 100%) fixed; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 18px 16px 48px; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .logo { font-weight: 800; letter-spacing: .04em; color: var(--text); text-decoration: none; font-size: 15px; }
+  .logo span { color: var(--amber); }
+  .lang { display: flex; gap: 4px; }
+  .lang button { background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 4px 10px; font: inherit; font-size: 13px; cursor: pointer; }
+  .lang button.on { background: var(--accent); color: #0f0d1f; border-color: transparent; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; backdrop-filter: blur(8px); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+  .hero { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 12px; display: block; background: #000; }
+  h1 { font-size: clamp(26px, 6.5vw, 36px); line-height: 1.15; margin: 16px 0 8px; }
+  h2 { font-size: clamp(21px, 5vw, 26px); line-height: 1.25; margin: 6px 0 16px; }
+  p { margin: 10px 0; }
+  .muted { color: var(--muted); }
+  .btn { display: block; width: 100%; text-align: center; padding: 15px 18px; border-radius: 14px; border: 0; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; }
+  .btn.cta { background: var(--accent); color: #0f0d1f; box-shadow: 0 0 24px rgba(98,230,214,.35); }
+  .btn.play { background: linear-gradient(180deg, #ffd27a, #f0a13a); color: #2a1606; box-shadow: 0 0 24px rgba(255,180,70,.35); margin-top: 14px; }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); margin-top: 10px; font-weight: 600; }
+  .answers { display: grid; gap: 10px; }
+  .answers button { text-align: left; background: rgba(255,255,255,.06); color: var(--text); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+    font: inherit; cursor: pointer; transition: transform .12s, background .12s, border-color .12s; min-height: 52px; }
+  @media (hover: hover) { .answers button:hover { background: rgba(98,230,214,.12); border-color: var(--accent); } }
+  .answers button:active { transform: scale(.98); }
+  .answers b { color: var(--accent); margin-right: 8px; }
+  .bar { height: 6px; background: rgba(255,255,255,.12); border-radius: 99px; overflow: hidden; margin-bottom: 14px; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--amber)); transition: width .3s; }
+  .step { font-size: 13px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .kicker { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-top: 14px; }
+  .rname { font-size: clamp(30px, 8vw, 44px); font-weight: 800; margin: 2px 0 6px; text-shadow: 0 0 24px rgba(255,179,92,.35); }
+  .flavor { font-style: italic; color: var(--muted); border-left: 3px solid var(--amber); padding-left: 12px; }
+  .share { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+  .share a, .share button { display: block; text-align: center; padding: 11px 6px; border-radius: 12px; background: rgba(255,255,255,.08); color: var(--text);
+    border: 1px solid var(--line); text-decoration: none; font: inherit; font-size: 14px; cursor: pointer; }
+  .share .main { grid-column: 1 / -1; background: var(--accent); color: #0f0d1f; font-weight: 700; border: 0; }
+  .fade { animation: fade .35s ease; }
+  @keyframes fade { from { opacity: .55; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 26px; }
+  footer a { color: var(--muted); }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="logo" href="../">AI CEO <span>TYCOON</span></a>
+    <div class="lang"><button data-l="en">EN</button><button data-l="ru">RU</button></div>
+  </div>
+
+  <div class="card fade" id="screen"></div>
+
+  <footer><span data-t="foot"></span> · <a href="../">Red Pixels</a></footer>
+</div>
+
+<script src="quiz-data.js"></script>
+<script>
+'use strict';
+const Q = window.QUIZ;
+const BASE = 'https://reix88.github.io/aiceotycoon/quiz/';
+const PLAY = 'https://play.google.com/store/apps/details?id=com.redpixels.aiceotycoon';
+const IMG = (id) => 'img/' + (Q.endings[id].img || id) + '.jpg';
+const T = {
+  en: {
+    title: 'Which AI ending would you get?', lead: '9 dilemmas from the game AI CEO Tycoon. One minute. Will your AI save humanity — or end it?',
+    start: 'Start', q: 'Question', your: 'Your ending', of: 'of 11 endings', play: '▶ Play free on Google Play', again: 'Take the quiz again',
+    shareMain: 'Share my ending', copy: 'Copy link', copied: 'Copied!', foot: 'A quiz based on the game AI CEO Tycoon',
+    shareText: (n) => `I got “${n}” in the AI CEO Tycoon quiz 🐈‍⬛ Which ending would you get?`,
+    hint: 'In the real game every choice matters — 200 story events, 11 endings and one suspicious office cat.',
+  },
+  ru: {
+    title: 'Какую концовку получил бы ты?', lead: '9 дилемм из игры Ai CEO Tycoon. Одна минута. Твой ИИ спасёт человечество — или погубит его?',
+    start: 'Начать', q: 'Вопрос', your: 'Твоя концовка', of: 'из 11 концовок', play: '▶ Играть бесплатно в Google Play', again: 'Пройти ещё раз',
+    shareMain: 'Поделиться концовкой', copy: 'Скопировать ссылку', copied: 'Скопировано!', foot: 'Тест по игре Ai CEO Tycoon',
+    shareText: (n) => `Мне выпала концовка «${n}» в тесте Ai CEO Tycoon 🐈‍⬛ А какая будет у тебя?`,
+    hint: 'В самой игре важен каждый выбор: 200 сюжетных событий, 11 концовок и один подозрительный офисный кот.',
+  },
+};
+const params = new URLSearchParams(location.search);
+let lang = params.get('lang') || ((navigator.language || 'en').toLowerCase().startsWith('ru') ? 'ru' : 'en');
+if (!T[lang]) lang = 'en';
+let step = -1, scores = {}, result = params.get('r') && Q.endings[params.get('r')] ? params.get('r') : null;
+const $s = document.getElementById('screen');
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const play = (id) => `${PLAY}&referrer=${encodeURIComponent(`utm_source=quiz&utm_medium=web&utm_campaign=${id || 'quiz'}`)}`;
+
+function render() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang button').forEach((b) => b.classList.toggle('on', b.dataset.l === lang));
+  document.querySelectorAll('[data-t]').forEach((el) => (el.textContent = T[lang][el.dataset.t]));
+  $s.classList.remove('fade'); void $s.offsetWidth; $s.classList.add('fade');
+  if (result) return renderResult();
+  if (step < 0) {
+    $s.innerHTML = `<img class="hero" src="img/cover.jpg" alt="">
+      <h1>${esc(T[lang].title)}</h1><p class="muted">${esc(T[lang].lead)}</p>
+      <button class="btn cta" id="go">${esc(T[lang].start)}</button>
+      <a class="btn ghost" href="${play()}" target="_blank" rel="noopener">${esc(T[lang].play)}</a>`;
+    document.getElementById('go').onclick = () => { step = 0; scores = {}; render(); };
+    return;
+  }
+  const q = Q.questions[step];
+  $s.innerHTML = `<div class="bar"><i style="width:${(step / Q.questions.length) * 100}%"></i></div>
+    <div class="step">${esc(T[lang].q)} ${step + 1} / ${Q.questions.length}</div>
+    <h2>${esc(q[lang])}</h2>
+    <div class="answers">${q.a.map((a, i) => `<button data-i="${i}"><b>${'ABCD'[i]}</b>${esc(a[lang])}</button>`).join('')}</div>`;
+  $s.querySelectorAll('.answers button').forEach((b) => (b.onclick = () => answer(+b.dataset.i)));
+}
+
+function answer(i) {
+  const s = Q.questions[step].a[i].s;
+  for (const k in s) scores[k] = (scores[k] || 0) + s[k];
+  step += 1;
+  if (step >= Q.questions.length) {
+    let best = null, top = -1;
+    for (const id of Q.order) { const v = scores[id] || 0; if (v > top) { top = v; best = id; } }
+    result = best;
+    history.replaceState(null, '', `?r=${best}${lang === 'ru' ? '&lang=ru' : ''}`);
+  }
+  render();
+}
+
+function renderResult() {
+  const e = Q.endings[result][lang];
+  const url = `${BASE}r/${result}/${lang === 'ru' ? '?lang=ru' : ''}`;
+  const text = T[lang].shareText(e[0]);
+  const enc = encodeURIComponent;
+  $s.innerHTML = `<img class="hero" src="${IMG(result)}" alt="">
+    <div class="kicker">${esc(T[lang].your)} · ${esc(T[lang].of)}</div>
+    <div class="rname">${esc(e[0])}</div>
+    <p><b>${esc(e[1])}</b></p>
+    <p class="flavor">${esc(e[2])}</p>
+    <div class="share">
+      <button class="main" id="shareNative">${esc(T[lang].shareMain)}</button>
+      <a href="https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(url)}" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/share/url?url=${enc(url)}&text=${enc(text)}" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://api.whatsapp.com/send?text=${enc(text + ' ' + url)}" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=${enc(url)}" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.reddit.com/submit?url=${enc(url)}&title=${enc(text)}" target="_blank" rel="noopener">Reddit</a>
+      <button id="copy">${esc(T[lang].copy)}</button>
+    </div>
+    <p class="muted" style="margin-top:16px">${esc(T[lang].hint)}</p>
+    <a class="btn play" href="${play(result)}" target="_blank" rel="noopener">${esc(T[lang].play)}</a>
+    <button class="btn ghost" id="again">${esc(T[lang].again)}</button>`;
+  document.getElementById('again').onclick = () => { result = null; step = 0; scores = {}; history.replaceState(null, '', location.pathname + (lang === 'ru' ? '?lang=ru' : '')); render(); };
+  const copy = document.getElementById('copy');
+  copy.onclick = () => {
+    const done = () => { copy.textContent = T[lang].copied; setTimeout(() => (copy.textContent = T[lang].copy), 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text + ' ' + url).then(done, () => {}); else { prompt('', text + ' ' + url); }
+  };
+  const nat = document.getElementById('shareNative');
+  nat.onclick = () => {
+    if (navigator.share) navigator.share({ title: 'AI CEO Tycoon', text, url }).catch(() => {});
+    else copy.onclick();
+  };
+}
+
+document.querySelectorAll('.lang button').forEach((b) => (b.onclick = () => { lang = b.dataset.l; render(); }));
+render();
+</script>
+</body>
+</html>
