@@ -15,6 +15,7 @@
   .doc-head { margin-bottom: 26px; }
   .doc-head h1 { font: 800 clamp(30px, 5vw, 46px)/1.1 var(--f-display); margin: 14px 0 10px; }
   .doc-head p { color: var(--muted); margin: 0; }
+  article[hidden] { display: none; }
   .tabs { display: inline-flex; gap: 6px; margin-top: 20px; padding: 4px; border: 1px solid var(--line2); border-radius: 99px; }
   .tabs a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 8px 16px; border-radius: 99px; }
   .tabs a:hover { color: var(--ink); background: rgba(255,255,255,.06); }
@@ -34,16 +35,14 @@
   <div class="wrap">
     <a class="brand" href="../"><img src="../assets/img/icon-64.png" alt="" width="36" height="36"><span>AI CEO <b>TYCOON</b></span></a>
     <div class="header-actions" style="margin-left:auto">
-      <a class="btn btn-ghost btn-sm" href="../" style="display:inline-flex">← Home</a>
+      <div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="ru">RU</button></div>
+      <a class="btn btn-ghost btn-sm" href="../" style="display:inline-flex" id="home">← Home</a>
     </div>
   </div>
 </header>
 <main class="doc">
   <div class="doc-head">
-    <span class="eyebrow">Legal</span>
-    <h1>Privacy Policy</h1>
-    <p>AI CEO Tycoon · Red Pixels</p>
-    <nav class="tabs"><a href="#en">English</a><a href="#ru">Русский</a></nav>
+    <span class="eyebrow" id="eyebrow">Legal</span>
   </div>
 
   <article id="en" lang="en">
@@ -204,5 +203,26 @@
     <span>© 2026 Red Pixels</span>
   </div>
 </footer>
+<script>
+  // по умолчанию — английский; русский — если выбран на сайте, в ссылке ?lang=ru или #ru
+  let lang = 'en';
+  try { if (localStorage.getItem('site.lang') === 'ru') lang = 'ru'; } catch (e) { /* без сохранения */ }
+  if (/[?&]lang=ru/.test(location.search) || location.hash === '#ru') lang = 'ru';
+  if (/[?&]lang=en/.test(location.search) || location.hash === '#en') lang = 'en';
+  function apply() {
+    document.documentElement.lang = lang;
+    document.getElementById('en').hidden = lang !== 'en';
+    document.getElementById('ru').hidden = lang !== 'ru';
+    document.querySelectorAll('.lang button').forEach((b) => b.classList.toggle('on', b.dataset.l === lang));
+    document.title = lang === 'ru' ? 'Политика конфиденциальности — AI CEO Tycoon' : 'Privacy Policy — AI CEO Tycoon';
+    document.getElementById('home').textContent = lang === 'ru' ? '← На главную' : '← Home';
+    document.getElementById('eyebrow').textContent = lang === 'ru' ? 'Документы' : 'Legal';
+  }
+  document.querySelectorAll('.lang button').forEach((b) => (b.onclick = () => {
+    lang = b.dataset.l; try { localStorage.setItem('site.lang', lang); } catch (e) { /* без сохранения */ }
+    apply(); window.scrollTo(0, 0);
+  }));
+  apply();
+</script>
 </body>
 </html>

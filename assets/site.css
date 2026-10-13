@@ -105,3 +105,5 @@ section { position: relative; }
   .header-actions { margin-left: auto; }
 }
 @media (max-width: 420px) { .brand span { font-size: 13px; } .brand img { width: 32px; height: 32px; } }
+/* на узком экране кнопка «На главную» не нужна — логотип ведёт туда же */
+@media (max-width: 520px) { #home { display: none !important; } }

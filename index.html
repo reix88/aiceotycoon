@@ -44,8 +44,18 @@
 .hero h1 em { font-style: normal; display: block; background: linear-gradient(92deg, var(--amber), #ff8a7a 45%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero p { color: #d7cff1; font-size: clamp(16.5px, 1.6vw, 20px); max-width: 560px; margin: 0 0 30px; text-shadow: 0 2px 16px rgba(0,0,0,.5); }
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-.quiz-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: var(--teal); font-weight: 600; text-decoration: none; }
-.quiz-link:hover { text-decoration: underline; }
+.quiz-chip { display: inline-flex; align-items: center; gap: 14px; margin-top: 16px; padding: 10px 12px 10px 10px; border-radius: 18px; text-decoration: none; color: var(--ink);
+  background: linear-gradient(rgba(16,12,34,.72), rgba(16,12,34,.72)) padding-box, linear-gradient(110deg, var(--teal), var(--violet) 50%, var(--pink)) border-box;
+  border: 1px solid transparent; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); max-width: 100%; transition: transform .2s, box-shadow .25s; }
+.qc-thumbs { display: flex; flex: none; }
+.qc-thumbs img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #120e26; }
+.qc-thumbs img + img { margin-left: -12px; }
+.qc-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.qc-txt b { font: 800 14.5px/1.25 var(--f-display); }
+.qc-txt small { color: var(--muted); font-size: 13px; }
+.qc-go { width: 36px; height: 36px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--teal); color: #072320; transition: transform .25s; }
+.qc-go svg { width: 18px; height: 18px; }
+@media (hover: hover) { .quiz-chip:hover { transform: translateY(-1px); box-shadow: 0 12px 34px -12px rgba(139,108,255,.6); } .quiz-chip:hover .qc-go { transform: translateX(3px); } }
 .stats { display: flex; gap: 10px 28px; flex-wrap: wrap; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line2); max-width: 600px; }
 .stat b { display: block; font: 800 clamp(22px, 2.6vw, 30px)/1 var(--f-display); color: var(--ink); }
 .stat span { font-size: 13.5px; color: var(--muted); }
@@ -127,7 +137,7 @@
 .trailer img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s, filter .4s; }
 .trailer .play { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: clamp(72px, 9vw, 108px); height: clamp(72px, 9vw, 108px); border-radius: 50%;
   background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: grid; place-items: center; transition: transform .2s, background .2s; }
-.trailer .play svg { width: 38%; height: 38%; margin-left: 8%; color: #fff; }
+.trailer .play svg { width: 40%; height: 40%; color: #fff; display: block; }
 .trailer .lbl { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px; font: 800 clamp(15px, 1.6vw, 19px)/1.2 var(--f-display); text-align: left; background: linear-gradient(0deg, rgba(0,0,0,.7), transparent); color: #fff; }
 @media (hover: hover) { .trailer:hover img { transform: scale(1.03); filter: brightness(1.05); } .trailer:hover .play { transform: scale(1.06); background: var(--amber); } }
 
@@ -247,7 +257,11 @@
           <a class="btn btn-play play-link" href="#"><img src="assets/img/icon-64.png" alt="" width="36" height="36"><span class="txt"><small data-i="cta.free">Free on</small><b>Google Play</b></span></a>
           <button class="btn btn-ghost" data-trailer><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/></svg><span data-i="cta.trailer">Watch trailer</span></button>
         </div>
-        <a class="quiz-link" href="quiz/"><span data-i="hero.quiz">🐈 Which of the 11 endings would you get? Take the 1-minute quiz →</span></a>
+        <a class="quiz-chip" href="quiz/">
+          <span class="qc-thumbs" aria-hidden="true"><img src="assets/img/end/golden_age.webp" alt=""><img src="assets/img/end/doomsday.webp" alt=""><img src="assets/img/end/garden.webp" alt=""></span>
+          <span class="qc-txt"><b data-i="hero.quiz">Which of the 11 endings would you get?</b><small data-i="hero.quiz2">1-minute quiz · 9 dilemmas from the game</small></span>
+          <span class="qc-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
         <div class="stats">
           <div class="stat"><b>11</b><span data-i="stat.endings">endings</span></div>
           <div class="stat"><b>~200</b><span data-i="stat.events">story events</span></div>
@@ -296,8 +310,8 @@
         <article class="tile t-b reveal"><img loading="lazy" src="assets/img/agi.webp" alt=""><div class="body"><span class="tag" data-i="f2.tag">Build</span><h3 data-i="f2.t">Train your own AI</h3><p data-i="f2.d">Name it, train it, release it and compare benchmarks with rival labs.</p></div></article>
         <article class="tile t-c reveal"><img loading="lazy" src="assets/img/act4.webp" alt=""><div class="body"><span class="tag" data-i="f3.tag">Compete</span><h3 data-i="f3.t">Race rival labs</h3><p data-i="f3.d">A hype visionary, a corporate giant, a rocket billionaire, safety purists and a state lab with no brakes.</p></div></article>
         <article class="tile t-d reveal"><img loading="lazy" src="assets/img/senate.webp" alt=""><div class="body"><span class="tag" data-i="f4.tag">Decide</span><h3 data-i="f4.t">A world that reacts</h3><p data-i="f4.d">Board coups, Senate hearings, protests under your windows and a social feed that explodes with every release.</p></div></article>
-        <article class="tile t-e reveal"><img loading="lazy" src="assets/img/shot-garage.webp" alt=""><div class="body"><span class="tag" data-i="f5.tag">Relax</span><h3 data-i="f5.t">Play your way</h3><p data-i="f5.d">Real-time timers and offline progress: five minutes on the bus or a whole evening.</p></div></article>
-        <article class="tile t-f reveal"><img loading="lazy" src="assets/img/founder.webp" style="object-position: 18% 50%" alt=""><div class="body"><span class="tag" data-i="f6.tag">Trust</span><h3 data-i="f6.t">The office cat</h3><p data-i="f6.d">It senses AI anomalies before humans do. Always trust the cat.</p></div></article>
+        <article class="tile t-e reveal"><img loading="lazy" src="assets/img/act3.webp" alt=""><div class="body"><span class="tag" data-i="f5.tag">Relax</span><h3 data-i="f5.t">Play your way</h3><p data-i="f5.d">Real-time timers and offline progress: five minutes on the bus or a whole evening.</p></div></article>
+        <article class="tile t-f reveal"><img loading="lazy" src="assets/img/cat-office.webp" alt=""><div class="body"><span class="tag" data-i="f6.tag">Trust</span><h3 data-i="f6.t">The office cat</h3><p data-i="f6.d">It senses AI anomalies before humans do. Always trust the cat.</p></div></article>
         <article class="tile t-g reveal"><img loading="lazy" src="assets/img/act2.webp" alt=""><div class="body"><span class="tag" data-i="f7.tag">Fair</span><h3 data-i="f7.t">Free, no pay-to-win</h3><p data-i="f7.d">No loot boxes. The whole game — all 11 endings — is beatable without paying.</p></div></article>
       </div>
     </div>
@@ -327,7 +341,7 @@
     <div class="wrap reveal">
       <button class="trailer" data-trailer aria-label="Play trailer">
         <img loading="lazy" src="assets/img/cutaway.webp" alt="">
-        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/></svg></span>
+        <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 5.14v13.72a1 1 0 0 0 1.5.86l10-6.86a1 1 0 0 0 0-1.72l-10-6.86a1 1 0 0 0-1.5.86z" transform="translate(-1.5 0)"/></svg></span>
         <span class="lbl" data-i="trailer.lbl">Watch the trailer · 0:30</span>
       </button>
     </div>
@@ -369,12 +383,14 @@
     <div class="wrap">
       <div class="sec-head reveal"><span class="eyebrow" data-i="s.eyebrow">Screenshots</span><h2 class="h2" data-ih="s.title">Lo-fi sunsets. <em>Neon servers.</em></h2></div>
       <div class="shots" id="shots">
-        <button><img loading="lazy" src="assets/img/card-ceo.webp" alt="Start in your parents' garage"></button>
-        <button><img loading="lazy" src="assets/img/card-ai.webp" alt="Train your own AI"></button>
-        <button><img loading="lazy" src="assets/img/card-cat.webp" alt="Every choice has a price"></button>
-        <button><img loading="lazy" src="assets/img/shot-train.webp" alt="Training screen"></button>
-        <button><img loading="lazy" src="assets/img/shot-ai.webp" alt="Your AI speaks"></button>
-        <button><img loading="lazy" src="assets/img/shot-cat.webp" alt="The cat event"></button>
+        <button><img loading="lazy" src="assets/img/shot1.webp" alt="Start in your parents’ garage"></button>
+        <button><img loading="lazy" src="assets/img/shot2.webp" alt="Every choice has a price"></button>
+        <button><img loading="lazy" src="assets/img/shot3.webp" alt="Build megaprojects in orbit"></button>
+        <button><img loading="lazy" src="assets/img/shot4.webp" alt="Train your own AI"></button>
+        <button><img loading="lazy" src="assets/img/shot5.webp" alt="From a garage to a tech empire"></button>
+        <button><img loading="lazy" src="assets/img/shot6.webp" alt="Every chapter changes the story"></button>
+        <button><img loading="lazy" src="assets/img/shot7.webp" alt="Will your AI save humanity or end it?"></button>
+        <button><img loading="lazy" src="assets/img/shot8.webp" alt="When AI changes the world, the world pushes back"></button>
         <button><img loading="lazy" src="assets/img/cutaway.webp" alt="The campus in cutaway"></button>
       </div>
     </div>
@@ -423,7 +439,7 @@
       <a href="privacy/" data-i="foot.privacy">Privacy Policy</a>
       <a href="mailto:thepenguin320@gmail.com">Email</a>
     </nav>
-    <span>© 2026 Red Pixels · <span data-i="foot.solo">a one-person studio</span></span>
+    <span>© 2026 Red Pixels</span>
   </div>
 </footer>
 
@@ -441,7 +457,7 @@ const RU = {
   'hero.eyebrow': 'Тайкун про ИИ-стартап · Бесплатно на Android',
   'hero.title': 'Построй ИИ-лабораторию.<em>Реши, кем она станет.</em>',
   'hero.text': 'Начни в гараже родителей с ноутбуком и котом. Дорасти до кампуса, дата-центров по всему миру и мегапроектов на орбите — и реши, станет ли твой ИИ лучшим другом человечества или его последней ошибкой.',
-  'hero.quiz': '🐈 Какая из 11 концовок выпадет тебе? Тест на минуту →',
+  'hero.quiz': 'Какая из 11 концовок выпадет тебе?', 'hero.quiz2': 'Тест на минуту · 9 дилемм из игры',
   'stat.endings': 'концовок', 'stat.events': 'сюжетных событий', 'stat.langs': 'языков', 'stat.cat': 'подозрительный кот',
   'twist.eyebrow': 'Главная фишка', 'twist.title': 'Осознанность твоего ИИ <em>скрыта</em>.',
   'twist.text': 'Ты увидишь её, только если вложишься в исследования безопасности, — а безопасность стоит денег и времени, пока конкуренты выпускают модели быстрее. Большинство игроков смотрят слишком поздно.',
@@ -476,7 +492,7 @@ const RU = {
   's.eyebrow': 'Скриншоты', 's.title': 'Лоу-фай закаты. <em>Неоновые серверы.</em>',
   'c.eyebrow': 'Талисман', 'c.title': 'Всегда доверяй коту.',
   'fin.eyebrow': 'Бесплатно на Android', 'fin.title': 'Твой гараж ждёт.', 'fin.text': 'Бесплатно. Без лутбоксов и доната для победы. Двенадцать языков. Один кот.',
-  'fin.quiz': 'Пройти тест концовок', 'fin.contact': 'Пресса и отзывы:', 'foot.privacy': 'Политика конфиденциальности', 'foot.solo': 'студия из одного человека',
+  'fin.quiz': 'Пройти тест концовок', 'fin.contact': 'Пресса и отзывы:', 'foot.privacy': 'Политика конфиденциальности',
 };
 const CAT_SAY = {
   en: ['…I saw what the model did at 3 a.m.', 'MEOW. (The servers are too warm.)', 'Asleep on the warmest rack. Do not disturb.', 'It said my name. I never told it my name.', 'Shipped. With zero bugs. You’re welcome.', 'Hi! Go play the game, human.'],

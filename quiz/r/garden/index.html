@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>I got “The Garden” — AI CEO Tycoon quiz</title>
 <meta name="description" content="AI gently manages people. Everyone is happy. No one is free. Which of 11 endings would you get?">
+<meta name="theme-color" content="#0b0918">
 <meta property="og:type" content="website">
 <meta property="og:title" content="I got “The Garden”. Which AI ending would you get?">
 <meta property="og:description" content="AI gently manages people. Everyone is happy. No one is free. 9 dilemmas, 1 minute — AI CEO Tycoon quiz.">
@@ -12,32 +13,41 @@
 <meta property="og:url" content="https://reix88.github.io/aiceotycoon/quiz/r/garden/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://reix88.github.io/aiceotycoon/quiz/img/garden.jpg">
-<link rel="stylesheet" href="../../../assets/fonts.css">
 <link rel="icon" type="image/png" href="../../../assets/img/icon-64.png">
+<link rel="stylesheet" href="../../../assets/site.css">
 <style>
-  body { margin: 0; min-height: 100vh; color: #ece6fb; font: 17px/1.55 "Golos Text", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
-    background: linear-gradient(180deg, #120f2a 0%, #2c1b4f 40%, #7a3a6a 75%, #d9774f 100%) fixed; }
-  .wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
-  .card { background: rgba(18,14,38,.72); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 20px; }
-  img { width: 100%; aspect-ratio: 1200/630; object-fit: cover; border-radius: 12px; display: block; }
-  .k { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #ffb35c; margin-top: 14px; }
-  h1 { font: 800 clamp(28px, 7.5vw, 42px)/1.15 "Unbounded", "Segoe UI", sans-serif; margin: 2px 0 6px; }
-  .btn { display: block; text-align: center; padding: 15px; border-radius: 14px; font-weight: 700; text-decoration: none; margin-top: 12px; }
-  .q { background: #62e6d6; color: #0f0d1f; } .p { background: linear-gradient(180deg, #ffd27a, #f0a13a); color: #2a1606; }
-  .m { color: #b9b0d6; }
+  body { min-height: 100vh; background: radial-gradient(900px 520px at 85% -5%, rgba(139,108,255,.22), transparent 70%), radial-gradient(800px 480px at -5% 60%, rgba(255,122,184,.12), transparent 70%), var(--bg); }
+  .stage { max-width: 680px; margin: 0 auto; padding: calc(var(--header) + 28px) var(--gutter) 48px; }
+  .panel { background: var(--panel); border: 1px solid var(--line2); border-radius: var(--r-lg); padding: clamp(18px, 3.4vw, 30px); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .cover { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: calc(var(--r-lg) - 8px); display: block; }
+  .eyebrow { margin-top: 22px; }
+  h1 { font: 800 clamp(30px, 7.5vw, 48px)/1.08 var(--f-display); margin: 8px 0 10px; background: linear-gradient(92deg, var(--amber), #ff8a7a 45%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .d { font-weight: 600; font-size: 18px; margin: 0 0 12px; }
+  .m { color: var(--muted); margin: 0 0 22px; }
+  .acts { display: grid; gap: 10px; } .acts .btn { width: 100%; }
 </style>
 </head>
-<body><div class="wrap"><div class="card">
-  <img src="../../img/garden.jpg" alt="">
-  <div class="k" id="k">Someone got this ending</div>
+<body>
+<header class="site-header solid"><div class="wrap">
+  <a class="brand" href="../../../"><img src="../../../assets/img/icon-64.png" alt="" width="36" height="36"><span>AI CEO <b>TYCOON</b></span></a>
+  <div class="header-actions" style="margin-left:auto"><a class="btn btn-ghost btn-sm" href="../../../" style="display:inline-flex" id="home">← Home</a></div>
+</div></header>
+<main class="stage"><div class="panel">
+  <img class="cover" src="../../../assets/img/end/garden.webp" alt="">
+  <span class="eyebrow" id="k">Someone got this ending</span>
   <h1 id="n">The Garden</h1>
-  <p id="d">AI gently manages people. Everyone is happy. No one is free.</p>
+  <p class="d" id="d">AI gently manages people. Everyone is happy. No one is free.</p>
   <p class="m" id="h">Which of the 11 endings would you get? 9 dilemmas from the game, one minute.</p>
-  <a class="btn q" id="q" href="../../">Take the quiz</a>
-  <a class="btn p" id="p" href="https://play.google.com/store/apps/details?id=com.redpixels.aiceotycoon&referrer=utm_source%3Dquiz%26utm_medium%3Dshare%26utm_campaign%3Dgarden">▶ Play AI CEO Tycoon free on Google Play</a>
-</div></div>
+  <div class="acts">
+    <a class="btn btn-teal" id="q" href="../../">Take the quiz</a>
+    <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.redpixels.aiceotycoon&referrer=utm_source%3Dquiz%26utm_medium%3Dshare%26utm_campaign%3Dgarden" target="_blank" rel="noopener"><img src="../../../assets/img/icon-64.png" alt="" width="36" height="36"><span class="txt"><small id="free">Free on</small><b>Google Play</b></span></a>
+  </div>
+</div></main>
 <script>
-  if (/[?&]lang=ru/.test(location.search) || (navigator.language || '').toLowerCase().startsWith('ru')) {
+  let ru = /[?&]lang=ru/.test(location.search);
+  try { if (!/[?&]lang=en/.test(location.search) && localStorage.getItem('site.lang') === 'ru') ru = true; } catch (e) { /* без сохранения */ }
+  if (!ru && !/[?&]lang=en/.test(location.search) && (navigator.language || '').toLowerCase().startsWith('ru')) ru = true;
+  if (ru) {
     document.documentElement.lang = 'ru';
     document.getElementById('k').textContent = 'Кому-то выпала эта концовка';
     document.getElementById('n').textContent = "Сад";
@@ -45,7 +55,8 @@
     document.getElementById('h').textContent = 'А какая из 11 концовок выпадет тебе? 9 дилемм из игры, одна минута.';
     document.getElementById('q').textContent = 'Пройти тест';
     document.getElementById('q').href = '../../?lang=ru';
-    document.getElementById('p').textContent = '▶ Играть в Ai CEO Tycoon бесплатно';
+    document.getElementById('free').textContent = 'Бесплатно в';
+    document.getElementById('home').textContent = '← На главную';
   }
 </script>
 </body>
