@@ -107,3 +107,5 @@ section { position: relative; }
 @media (max-width: 420px) { .brand span { font-size: 13px; } .brand img { width: 32px; height: 32px; } }
 /* на узком экране кнопка «На главную» не нужна — логотип ведёт туда же */
 @media (max-width: 520px) { #home { display: none !important; } }
+/* узкий экран: длинная надпись кнопки переносится, а не вылезает за края */
+@media (max-width: 600px) { .btn { white-space: normal; text-align: center; line-height: 1.25; padding-top: 12px; padding-bottom: 12px; } }
