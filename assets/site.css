@@ -92,6 +92,10 @@ section { position: relative; }
 .site-footer nav { display: flex; gap: 6px 22px; flex-wrap: wrap; }
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--ink); }
+.foot-social { gap: 8px !important; }
+.foot-social a { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border: 1px solid var(--line2); border-radius: 99px; color: var(--ink); font-weight: 600; font-size: 14px; }
+.foot-social a:hover { border-color: var(--teal); color: var(--teal); }
+.foot-social svg { width: 17px; height: 17px; flex: none; }
 
 /* ---------- телефон ---------- */
 @media (max-width: 900px) {

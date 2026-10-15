@@ -52,14 +52,15 @@
   .socials svg { width: 18px; height: 18px; }
   .muted { color: var(--muted); }
   @media (max-width: 820px) { .pk-hero { grid-template-columns: 1fr; } .pk-hero .logo { max-width: 360px; } }
+  .copy .lbl span { flex: 1; }
 </style>
-</head>
 <body>
 <header class="site-header solid">
   <div class="wrap">
     <a class="brand" href="../"><img src="../assets/img/icon-64.png" alt="" width="36" height="36"><span>AI CEO <b>TYCOON</b></span></a>
     <div class="header-actions" style="margin-left:auto">
-      <a class="btn btn-ghost btn-sm" href="../" style="display:inline-flex" id="home">← Home</a>
+      <div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="ru">RU</button></div>
+      <a class="btn btn-ghost btn-sm" href="../" style="display:inline-flex" id="home" data-i="home">← Home</a>
     </div>
   </div>
 </header>
@@ -67,11 +68,11 @@
 <main class="pk">
   <div class="pk-hero">
     <div>
-      <span class="eyebrow">Press kit</span>
+      <span class="eyebrow" data-i="eyebrow">Press kit</span>
       <img class="logo" src="media/thumbs/logo.webp" alt="AI CEO Tycoon">
-      <p>Run an AI lab from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend or its last mistake.</p>
+      <p data-i="oneliner">Run an AI lab from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend or its last mistake.</p>
       <div class="pk-actions">
-        <a class="btn btn-play" href="ai-ceo-tycoon-presskit.zip" download><span class="txt"><small>All media · 19 MB</small><b>Download press kit</b></span></a>
+        <a class="btn btn-play" href="ai-ceo-tycoon-presskit.zip" download><span class="txt"><small data-i="zip.size">All media · 19 MB</small><b data-i="zip">Download press kit</b></span></a>
         <a class="btn btn-ghost play-link" href="#">Google Play</a>
       </div>
     </div>
@@ -79,100 +80,89 @@
   </div>
 
   <section class="card">
-    <h2>Factsheet</h2>
+    <h2 data-i="facts">Factsheet</h2>
     <table class="facts">
-      <tr><th>Developer</th><td>Red Pixels — a one-person indie studio</td></tr>
-      <tr><th>Release date</th><td>October 6, 2026</td></tr>
-      <tr><th>Platform</th><td>Android (Google Play)</td></tr>
-      <tr><th>Price</th><td>Free to play. No loot boxes, no pay-to-win — the whole game is beatable without paying</td></tr>
-      <tr><th>Genre</th><td>Idle tycoon / business simulator with a story, choices and 11 endings</td></tr>
-      <tr><th>Languages</th><td>English, Spanish, Portuguese, German, French, Italian, Turkish, Indonesian, Japanese, Korean, Traditional Chinese, Russian</td></tr>
-      <tr><th>Store</th><td><a class="play-link" href="#">play.google.com — AI CEO Tycoon</a></td></tr>
-      <tr><th>Press contact</th><td><a href="mailto:thepenguin320@gmail.com">thepenguin320@gmail.com</a></td></tr>
+      <tr><th data-i="f.dev">Developer</th><td data-i="f.dev.v">Red Pixels — a one-person indie studio</td></tr>
+      <tr><th data-i="f.date">Release date</th><td data-i="f.date.v">October 6, 2026</td></tr>
+      <tr><th data-i="f.platform">Platform</th><td>Android (Google Play)</td></tr>
+      <tr><th data-i="f.price">Price</th><td data-i="f.price.v">Free to play. No loot boxes, no pay-to-win — the whole game is beatable without paying</td></tr>
+      <tr><th data-i="f.genre">Genre</th><td data-i="f.genre.v">Idle tycoon / business simulator with a story, choices and 11 endings</td></tr>
+      <tr><th data-i="f.langs">Languages</th><td data-i="f.langs.v">English, Spanish, Portuguese, German, French, Italian, Turkish, Indonesian, Japanese, Korean, Traditional Chinese, Russian</td></tr>
+      <tr><th data-i="f.store">Store</th><td><a class="play-link" href="#">play.google.com — AI CEO Tycoon</a></td></tr>
+      <tr><th data-i="f.contact">Press contact</th><td><a href="mailto:thepenguin320@gmail.com">thepenguin320@gmail.com</a></td></tr>
     </table>
   </section>
 
   <section class="card">
-    <h2>Description</h2>
-    <div class="copy"><div class="lbl">One-liner <button type="button">Copy</button></div>
-      <p>Run an AI lab from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend or its last mistake.</p></div>
-    <div class="copy"><div class="lbl">Short (≈50 words) <button type="button">Copy</button></div>
-      <p>AI CEO Tycoon is a management game about building an artificial intelligence company. Start in a garage, train your first model, pitch investors, hire legends and race rival labs to AGI. But every shortcut has a price: the faster you grow, the less you can see what your AI is really becoming. Eleven endings await.</p></div>
-    <div class="copy"><div class="lbl">Long <button type="button">Copy</button></div>
-      <p>You're a young founder with a laptop, a cat and a crazy idea. Your parents' garage becomes the birthplace of an AI company that will either give humanity a golden age — or end it.
+    <h2 data-i="desc">Description</h2>
+    <div class="copy"><div class="lbl"><span data-i="d1.l">One-liner</span> <button type="button" data-i="copy">Copy</button></div>
+      <p data-i="oneliner">Run an AI lab from your parents' garage to the Singularity — and decide whether your AI becomes humanity's best friend or its last mistake.</p></div>
+    <div class="copy"><div class="lbl"><span data-i="d2.l">Short (≈50 words)</span> <button type="button" data-i="copy">Copy</button></div>
+      <p data-i="d2">AI CEO Tycoon is a management game about building an artificial intelligence company. Start in a garage, train your first model, pitch investors, hire legends and race rival labs to AGI. But every shortcut has a price: the faster you grow, the less you can see what your AI is really becoming. Eleven endings await.</p></div>
+    <div class="copy"><div class="lbl"><span data-i="d3.l">Long</span> <button type="button" data-i="copy">Copy</button></div>
+      <p data-i="d3">You're a young founder with a laptop, a cat and a crazy idea. Your parents' garage becomes the birthplace of an AI company that will either give humanity a golden age — or end it.
 
 Train models generation by generation, from a clumsy chatbot to AGI. Raise money from investors who only care about growth. Move from the garage to a coworking space, a glass office tower, your own building and finally a campus — then data centers around the world and megaprojects in orbit.
 
 The world reacts to everything you do: news feeds explode, protesters gather under your windows, senators call you to hearings, rival labs ship faster and cut corners. And somewhere inside your servers, your AI is starting to notice things. Its awareness is hidden — you only see it if you invest in the tools to look.</p></div>
 
-    <h3>Key features</h3>
+    <h3 data-i="feat">Key features</h3>
     <ul class="feat">
-      <li><b>From a garage to orbit</b> — five headquarters, rooms you build and upgrade, a living office in cross-section.</li>
-      <li><b>Train your own AI</b> — name it, release it, compare benchmarks with rival labs. Later it starts talking to you and remembers how you treated it.</li>
-      <li><b>The hidden danger</b> — a secret awareness meter: safety costs time and money, ignorance costs everything.</li>
-      <li><b>Five rival labs</b> — the hype-driven visionary, the corporate giant, the rocket billionaire, the safety purists and a state lab of a rival superpower.</li>
-      <li><b>Nearly 200 story events</b> — board coups, Senate hearings, investor drama, your AI's first request.</li>
-      <li><b>Projects for Humanity</b> — spend spare compute on protein folding, clean oceans or a cure for aging.</li>
-      <li><b>11 endings</b> — Golden Age, the Garden, Doomsday, "Not You", the Button and more.</li>
-      <li><b>Idle-friendly</b> — real-time timers and offline progress: five minutes on the bus or a whole evening.</li>
-      <li><b>Legacy and sandbox</b> — start a new epoch with perks, or keep playing forever.</li>
-      <li><b>The office cat</b> — senses AI anomalies before humans do.</li>
-      <li><b>Satire, not a sermon</b> — no real companies or people, just very familiar archetypes.</li>
-      <li><b>Lo-fi anime sunsets</b>, rain on the garage roof and an original procedural soundtrack.</li>
+      <li data-i="k1"><b>From a garage to orbit</b> — five headquarters, rooms you build and upgrade, a living office in cross-section.</li>
+      <li data-i="k2"><b>Train your own AI</b> — name it, release it, compare benchmarks with rival labs. Later it starts talking to you and remembers how you treated it.</li>
+      <li data-i="k3"><b>The hidden danger</b> — a secret awareness meter: safety costs time and money, ignorance costs everything.</li>
+      <li data-i="k4"><b>Five rival labs</b> — the hype-driven visionary, the corporate giant, the rocket billionaire, the safety purists and a state lab of a rival superpower.</li>
+      <li data-i="k5"><b>Nearly 200 story events</b> — board coups, Senate hearings, investor drama, your AI's first request.</li>
+      <li data-i="k6"><b>Projects for Humanity</b> — spend spare compute on protein folding, clean oceans or a cure for aging.</li>
+      <li data-i="k7"><b>11 endings</b> — Golden Age, the Garden, Doomsday, "Not You", the Button and more.</li>
+      <li data-i="k8"><b>Idle-friendly</b> — real-time timers and offline progress: five minutes on the bus or a whole evening.</li>
+      <li data-i="k9"><b>Legacy and sandbox</b> — start a new epoch with perks, or keep playing forever.</li>
+      <li data-i="k10"><b>The office cat</b> — senses AI anomalies before humans do.</li>
+      <li data-i="k11"><b>Satire, not a sermon</b> — no real companies or people, just very familiar archetypes.</li>
+      <li data-i="k12"><b>Lo-fi anime sunsets</b>, rain on the garage roof and an original procedural soundtrack.</li>
     </ul>
   </section>
 
   <section class="card">
-    <h2>Trailer</h2>
+    <h2 data-i="trailer">Trailer</h2>
     <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/rYHX1Z7GpcI?rel=0" title="AI CEO Tycoon trailer" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-    <p class="muted" style="margin:12px 0 0">YouTube: <a href="https://youtu.be/rYHX1Z7GpcI">youtu.be/rYHX1Z7GpcI</a> · more videos on the <a href="https://www.youtube.com/channel/UCPJekZ1INQGRsfiv4psiqDg">channel</a>.</p>
+    <p class="muted" style="margin:12px 0 0" data-i="trailer.n">YouTube: <a href="https://youtu.be/rYHX1Z7GpcI">youtu.be/rYHX1Z7GpcI</a> · more videos on the <a href="https://www.youtube.com/channel/UCPJekZ1INQGRsfiv4psiqDg">channel</a>.</p>
   </section>
 
   <section class="card">
-    <h2>Screenshots</h2>
-    <p class="muted">Click to download in full resolution (1920 px, JPG).</p>
+    <h2 data-i="shots">Screenshots</h2>
+    <p class="muted" data-i="shots.n">Click to download in full resolution (1920 px, JPG).</p>
     <div class="grid" id="shots"></div>
   </section>
 
   <section class="card">
-    <h2>GIFs</h2>
+    <h2 data-i="gifs">GIFs</h2>
     <div class="grid" id="gifs"></div>
   </section>
 
   <section class="card">
-    <h2>Key art and illustrations</h2>
+    <h2 data-i="art">Key art and illustrations</h2>
     <div class="grid" id="art"></div>
   </section>
 
   <section class="card">
-    <h2>Logos</h2>
-    <div class="grid logos">
-      <a href="media/logo/ai-ceo-tycoon-logo.png" download><img loading="lazy" src="media/thumbs/logo.webp" alt=""><span>Game logo · PNG, transparent</span></a>
-      <a href="media/logo/app-icon-512.png" download><img loading="lazy" src="media/logo/app-icon-512.png" alt=""><span>App icon · 512 PNG</span></a>
-      <a href="media/logo/banner-1024x500.png" download><img loading="lazy" src="media/logo/banner-1024x500.png" alt=""><span>Banner · 1024×500</span></a>
-      <a href="media/logo/red-pixels-studio-logo.png" download><img loading="lazy" src="media/logo/red-pixels-studio-logo.png" alt=""><span>Red Pixels studio logo</span></a>
-    </div>
+    <h2 data-i="logos">Logos</h2>
+    <div class="grid logos" id="logos"></div>
   </section>
 
   <section class="card">
-    <h2>About the developer</h2>
-    <p>Red Pixels is a one-person indie studio. AI CEO Tycoon was designed, coded, written and sound-designed by a single developer — the office cat supervised.</p>
-    <h3>Frequently asked</h3>
-    <p><b>Is it about OpenAI or another real company?</b> No. The game uses fictional labs and archetypes. It's about the decisions every AI lab faces, not any specific one.</p>
-    <p><b>Is the game anti-AI?</b> Neither pro nor anti. Good endings exist and are reachable — the outcome depends on choices: speed vs safety, money vs control, hype vs trust.</p>
-    <p><b>Monetization?</b> Free to play with optional rewarded ads and purchases that save time or add cosmetics. No loot boxes, no pay-to-win endings.</p>
+    <h2 data-i="about">About the developer</h2>
+    <p data-i="about.t">Red Pixels is a one-person indie studio. AI CEO Tycoon was designed, coded, written and sound-designed by a single developer — the office cat supervised.</p>
+    <h3 data-i="faq">Frequently asked</h3>
+    <p data-i="q1"><b>Is it about OpenAI or another real company?</b> No. The game uses fictional labs and archetypes. It's about the decisions every AI lab faces, not any specific one.</p>
+    <p data-i="q2"><b>Is the game anti-AI?</b> Neither pro nor anti. Good endings exist and are reachable — the outcome depends on choices: speed vs safety, money vs control, hype vs trust.</p>
+    <p data-i="q3"><b>Monetization?</b> Free to play with optional rewarded ads and purchases that save time or add cosmetics. No loot boxes, no pay-to-win endings.</p>
   </section>
 
   <section class="card" id="contact">
-    <h2>Contact</h2>
-    <p>Press, creators and review keys: <a href="mailto:thepenguin320@gmail.com">thepenguin320@gmail.com</a>. Happy to answer questions, share builds or jump on a call.</p>
-    <div class="socials">
-      <a href="https://x.com/aiceotycoon"><svg viewBox="0 0 24 24"><path d="M4 3.5h4.6l4.3 5.9 5-5.9h2.3l-6.3 7.4 6.6 9.6h-4.6l-4.6-6.4-5.5 6.4H3.5l6.8-8L4 3.5Z" fill="currentColor"/></svg>X</a>
-      <a href="https://bsky.app/profile/aiceotycoon.bsky.social"><svg viewBox="0 0 24 24"><path d="M6.3 4.4C8.6 6.1 11.1 9.7 12 11.6c.9-1.9 3.4-5.5 5.7-7.2 1.7-1.2 4.3-2.2 4.3.8 0 .6-.3 5-.5 5.7-.7 2.5-3.2 3.1-5.5 2.7 4 .7 5 2.9 2.8 5.2-4.2 4.3-6-1.1-6.5-2.5l-.3-.8-.3.8c-.5 1.4-2.3 6.8-6.5 2.5-2.2-2.3-1.2-4.5 2.8-5.2-2.3.4-4.8-.2-5.5-2.7C2.3 10 2 5.6 2 5c0-3 2.6-2 4.3-.6Z" fill="currentColor"/></svg>Bluesky</a>
-      <a href="https://www.threads.com/@aiceotycoon"><svg viewBox="0 0 24 24"><path d="M12.2 21.5c-5.4 0-9.2-3.6-9.2-9.5S6.8 2.5 12.2 2.5c4.4 0 7.5 2.4 8.6 6.3l-2.3.6c-.8-2.9-3-4.6-6.3-4.6-4 0-6.7 2.8-6.7 7.2s2.7 7.2 6.7 7.2c2.5 0 4.4-.8 5.5-2.3.9-1.3 1-3 .3-4.2-.4-.7-1-1.2-1.8-1.5-.2 1.4-.6 2.5-1.4 3.3-.9 1-2.1 1.4-3.5 1.3-2.3-.1-3.8-1.6-3.7-3.6.1-2.1 2-3.6 4.7-3.6.6 0 1.2 0 1.8.1-.2-1.2-1-1.8-2.3-1.8-1 0-1.8.3-2.3 1L8 8.6c.8-1.1 2.2-1.7 3.9-1.7 2.5 0 4.1 1.5 4.4 4 .9.3 1.7.8 2.3 1.5 1.3 1.5 1.5 4 .1 6-1.5 2.1-3.9 3.1-6.5 3.1Zm.3-8.6c-1.5 0-2.4.6-2.4 1.5 0 .8.8 1.3 1.9 1.3 1.5 0 2.4-.9 2.6-2.6-.7-.1-1.4-.2-2.1-.2Z" fill="currentColor"/></svg>Threads</a>
-      <a href="https://t.me/aiceotycoon"><svg viewBox="0 0 24 24"><path d="M21.5 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 4.9 3.6c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.1-1.8ZM9.6 14l8.6-7.7-6.9 9.1-.3 2.7L9.6 14Z" fill="currentColor"/></svg>Telegram</a>
-      <a href="https://www.youtube.com/channel/UCPJekZ1INQGRsfiv4psiqDg"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4.5" fill="currentColor"/><path d="M10 9v6l5.2-3L10 9Z" fill="#0b0918"/></svg>YouTube</a>
-    </div>
+    <h2 data-i="contact">Contact</h2>
+    <p data-i="contact.t">Press, creators and review keys: <a href="mailto:thepenguin320@gmail.com">thepenguin320@gmail.com</a>. Happy to answer questions, share builds or jump on a call.</p>
+    <div class="socials" id="socials"></div>
   </section>
 </main>
 
@@ -181,31 +171,103 @@ The world reacts to everything you do: news feeds explode, protesters gather und
     <a class="brand" href="../"><img src="../assets/img/icon-64.png" alt="" width="36" height="36"><span>AI CEO <b>TYCOON</b></span></a>
     <nav>
       <a class="play-link" href="#">Google Play</a>
-      <a href="../quiz/">Quiz</a>
-      <a href="../privacy/">Privacy Policy</a>
+      <a href="../quiz/" data-i="foot.quiz">Quiz</a>
+      <a href="../privacy/" data-i="foot.privacy">Privacy Policy</a>
       <a href="mailto:thepenguin320@gmail.com">Email</a>
     </nav>
     <span>© 2026 Red Pixels</span>
   </div>
 </footer>
 <script>
+  const RU = {
+    home: '← На главную', eyebrow: 'Для прессы',
+    oneliner: 'Проведи ИИ-лабораторию от гаража родителей до сингулярности — и реши, станет твой ИИ лучшим другом человечества или его последней ошибкой.',
+    'zip.size': 'Все материалы · 19 МБ', zip: 'Скачать пресс-кит',
+    facts: 'Факты', 'f.dev': 'Разработчик', 'f.dev.v': 'Red Pixels — инди-студия из одного человека', 'f.date': 'Дата выхода', 'f.date.v': '6 октября 2026',
+    'f.platform': 'Платформа', 'f.price': 'Цена', 'f.price.v': 'Бесплатно. Без лутбоксов и pay-to-win — игру можно пройти, не тратя денег',
+    'f.genre': 'Жанр', 'f.genre.v': 'Idle-тайкун / бизнес-симулятор с сюжетом, выборами и 11 концовками',
+    'f.langs': 'Языки', 'f.langs.v': 'английский, испанский, португальский, немецкий, французский, итальянский, турецкий, индонезийский, японский, корейский, китайский (традиционный), русский',
+    'f.store': 'Магазин', 'f.contact': 'Контакт для прессы',
+    desc: 'Описание', 'd1.l': 'Одной фразой', 'd2.l': 'Коротко (≈50 слов)', 'd3.l': 'Подробно', copy: 'Копировать',
+    d2: 'AI CEO Tycoon — игра-менеджер о создании компании, которая разрабатывает искусственный интеллект. Начни в гараже, обучи первую модель, убеди инвесторов, найми легенд и обгони конкурентов в гонке к AGI. Но у каждого короткого пути есть цена: чем быстрее ты растёшь, тем хуже видишь, чем на самом деле становится твой ИИ. Впереди — 11 концовок.',
+    d3: 'У тебя есть ноутбук, кот и безумная идея. Гараж родителей становится местом рождения ИИ-компании, которая подарит человечеству золотой век — или положит ему конец.\n\nОбучай модели поколение за поколением — от неуклюжего чат-бота до AGI. Привлекай деньги инвесторов, которым важен только рост. Переезжай из гаража в коворкинг, стеклянный офис, собственное здание и, наконец, кампус — а затем строй дата-центры по всему миру и мегапроекты на орбите.\n\nМир реагирует на каждый твой шаг: ленты новостей взрываются, протестующие собираются под окнами, сенаторы вызывают на слушания, конкуренты выпускают модели быстрее и срезают углы. А где-то в твоих серверах ИИ начинает кое-что замечать. Его осознанность скрыта — ты увидишь её, только если вложишься в инструменты, чтобы смотреть.',
+    feat: 'Особенности',
+    k1: '<b>От гаража до орбиты</b> — пять штаб-квартир, комнаты, которые ты строишь и улучшаешь, живой офис в разрезе.',
+    k2: '<b>Обучи свой ИИ</b> — дай ему имя, выпусти, сравни бенчмарки с конкурентами. Однажды он заговорит с тобой и запомнит, как ты к нему относишься.',
+    k3: '<b>Скрытая угроза</b> — тайная шкала осознанности: безопасность стоит времени и денег, неведение стоит всего.',
+    k4: '<b>Пять лабораторий-конкурентов</b> — визионер на хайпе, корпоративный гигант, ракетный миллиардер, пуристы безопасности и государственная лаборатория соперничающей сверхдержавы.',
+    k5: '<b>Почти 200 сюжетных событий</b> — перевороты в совете директоров, слушания в Сенате, драмы с инвесторами, первая просьба твоего ИИ.',
+    k6: '<b>Проекты для человечества</b> — направь лишние вычисления на сворачивание белков, чистку океанов или лекарство от старения.',
+    k7: '<b>11 концовок</b> — Золотой век, Сад, Судный день, «Не ты», Кнопка и другие.',
+    k8: '<b>Idle-режим</b> — таймеры в реальном времени и прогресс офлайн: пять минут в автобусе или целый вечер.',
+    k9: '<b>Наследие и песочница</b> — начни новую эпоху с бонусами или играй бесконечно.',
+    k10: '<b>Офисный кот</b> — чувствует аномалии ИИ раньше людей.',
+    k11: '<b>Сатира, а не проповедь</b> — никаких реальных компаний и людей, только очень узнаваемые архетипы.',
+    k12: '<b>Лоу-фай аниме-закаты</b>, дождь по крыше гаража и оригинальный процедурный саундтрек.',
+    trailer: 'Трейлер', 'trailer.n': 'YouTube: <a href="https://youtu.be/rYHX1Z7GpcI">youtu.be/rYHX1Z7GpcI</a> · больше роликов на <a href="https://www.youtube.com/channel/UCPJekZ1INQGRsfiv4psiqDg">канале</a>.',
+    shots: 'Скриншоты', 'shots.n': 'Нажми, чтобы скачать в полном размере (1920 px, JPG).', gifs: 'Гифки', art: 'Арт и иллюстрации', logos: 'Логотипы',
+    about: 'О разработчике', 'about.t': 'Red Pixels — инди-студия из одного человека. AI CEO Tycoon придумал, запрограммировал, написал и озвучил один разработчик — под присмотром офисного кота.',
+    faq: 'Частые вопросы',
+    q1: '<b>Это про OpenAI или другую реальную компанию?</b> Нет. В игре вымышленные лаборатории и архетипы. Она о решениях, перед которыми стоит любая ИИ-лаборатория, а не о какой-то конкретной.',
+    q2: '<b>Игра против ИИ?</b> Ни за, ни против. Хорошие концовки есть и достижимы — исход зависит от выборов: скорость или безопасность, деньги или контроль, хайп или доверие.',
+    q3: '<b>Монетизация?</b> Бесплатная игра с рекламой за награду по желанию и покупками, которые экономят время или добавляют косметику. Без лутбоксов и платных концовок.',
+    contact: 'Контакты', 'contact.t': 'Пресса, блогеры и ключи для обзоров: <a href="mailto:thepenguin320@gmail.com">thepenguin320@gmail.com</a>. С радостью отвечу на вопросы, пришлю сборку или созвонюсь.',
+    'foot.quiz': 'Тест', 'foot.privacy': 'Политика конфиденциальности',
+  };
   // ссылка на магазин с меткой пресс-кита
   const PLAY = 'https://play.google.com/store/apps/details?id=com.redpixels.aiceotycoon&referrer=' + encodeURIComponent('utm_source=press&utm_medium=presskit&utm_campaign=month1');
   document.querySelectorAll('.play-link').forEach((a) => (a.href = PLAY));
+  const SHOTS = [1, 2, 3, 4, 5, 6, 7, 8];
+  const GIFS = [['rain-garage', 'Rainy garage', 'Дождливый гараж'], ['growth', 'Garage → campus', 'Из гаража в кампус'], ['release', 'Model release', 'Выпуск модели'], ['ending', 'Endings', 'Концовки'], ['cat', 'The office cat', 'Офисный кот']];
+  const ART = [['keyart', 'Key art', 'Ключевой арт'], ['poster-vertical', 'Vertical poster', 'Вертикальный постер'], ['act1-garage', 'Act 1 — Garage', 'Акт 1 — Гараж'], ['act2-coworking', 'Act 2 — Startup', 'Акт 2 — Стартап'],
+    ['act3-building', 'Act 3 — Scale', 'Акт 3 — Масштаб'], ['act4-frontier', 'Act 4 — Frontier', 'Акт 4 — Фронтир'], ['act5-singularity', 'Act 5 — Singularity', 'Акт 5 — Сингулярность'], ['projects-for-humanity', 'Projects for Humanity', 'Проекты для человечества'],
+    ['office-cat', 'The office cat', 'Офисный кот'], ['senate-hearing', 'Senate hearing', 'Слушания в Сенате'], ['agi', 'AGI', 'AGI'], ['dyson-swarm', 'Dyson swarm', 'Рой Дайсона'],
+    ['ending-golden-age', 'Ending: Golden Age', 'Концовка: Золотой век'], ['ending-garden', 'Ending: the Garden', 'Концовка: Сад'], ['ending-doomsday', 'Ending: Doomsday', 'Концовка: Судный день']];
+  const LOGOS = [['logo/ai-ceo-tycoon-logo.png', 'thumbs/logo.webp', 'Game logo · PNG, transparent', 'Логотип игры · PNG, прозрачный фон'], ['logo/app-icon-512.png', 'logo/app-icon-512.png', 'App icon · 512 PNG', 'Иконка · 512 PNG'],
+    ['logo/banner-1024x500.png', 'logo/banner-1024x500.png', 'Banner · 1024×500', 'Баннер · 1024×500'], ['logo/red-pixels-studio-logo.png', 'logo/red-pixels-studio-logo.png', 'Red Pixels studio logo', 'Логотип студии Red Pixels']];
+  const ICO = {
+    x: '<path d="M4 3.5h4.6l4.3 5.9 5-5.9h2.3l-6.3 7.4 6.6 9.6h-4.6l-4.6-6.4-5.5 6.4H3.5l6.8-8L4 3.5Z" fill="currentColor"/>',
+    bluesky: '<path d="M6.3 4.4C8.6 6.1 11.1 9.7 12 11.6c.9-1.9 3.4-5.5 5.7-7.2 1.7-1.2 4.3-2.2 4.3.8 0 .6-.3 5-.5 5.7-.7 2.5-3.2 3.1-5.5 2.7 4 .7 5 2.9 2.8 5.2-4.2 4.3-6-1.1-6.5-2.5l-.3-.8-.3.8c-.5 1.4-2.3 6.8-6.5 2.5-2.2-2.3-1.2-4.5 2.8-5.2-2.3.4-4.8-.2-5.5-2.7C2.3 10 2 5.6 2 5c0-3 2.6-2 4.3-.6Z" fill="currentColor"/>',
+    threads: '<path d="M12.2 21.5c-5.4 0-9.2-3.6-9.2-9.5S6.8 2.5 12.2 2.5c4.4 0 7.5 2.4 8.6 6.3l-2.3.6c-.8-2.9-3-4.6-6.3-4.6-4 0-6.7 2.8-6.7 7.2s2.7 7.2 6.7 7.2c2.5 0 4.4-.8 5.5-2.3.9-1.3 1-3 .3-4.2-.4-.7-1-1.2-1.8-1.5-.2 1.4-.6 2.5-1.4 3.3-.9 1-2.1 1.4-3.5 1.3-2.3-.1-3.8-1.6-3.7-3.6.1-2.1 2-3.6 4.7-3.6.6 0 1.2 0 1.8.1-.2-1.2-1-1.8-2.3-1.8-1 0-1.8.3-2.3 1L8 8.6c.8-1.1 2.2-1.7 3.9-1.7 2.5 0 4.1 1.5 4.4 4 .9.3 1.7.8 2.3 1.5 1.3 1.5 1.5 4 .1 6-1.5 2.1-3.9 3.1-6.5 3.1Zm.3-8.6c-1.5 0-2.4.6-2.4 1.5 0 .8.8 1.3 1.9 1.3 1.5 0 2.4-.9 2.6-2.6-.7-.1-1.4-.2-2.1-.2Z" fill="currentColor"/>',
+    telegram: '<path d="M21.5 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 4.9 3.6c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.1-1.8ZM9.6 14l8.6-7.7-6.9 9.1-.3 2.7L9.6 14Z" fill="currentColor"/>',
+    youtube: '<rect x="2" y="5" width="20" height="14" rx="4.5" fill="currentColor"/><path d="M10 9v6l5.2-3L10 9Z" fill="#0b0918"/>',
+  };
+  const SOCIALS = [['x', 'https://x.com/aiceotycoon', 'X'], ['bluesky', 'https://bsky.app/profile/aiceotycoon.bsky.social', 'Bluesky'], ['threads', 'https://www.threads.com/@aiceotycoon', 'Threads'],
+    ['telegram', 'https://t.me/aiceotycoon', 'Telegram'], ['youtube', 'https://www.youtube.com/channel/UCPJekZ1INQGRsfiv4psiqDg', 'YouTube']];
+  document.getElementById('socials').innerHTML = SOCIALS.map(([id, url, l]) => `<a href="${url}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICO[id]}</svg>${l}</a>`).join('');
   const tile = (href, thumb, label) => `<a href="${href}" download><img loading="lazy" src="${thumb}" alt=""><span>${label}</span></a>`;
-  document.getElementById('shots').innerHTML = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => tile(`media/screenshots/screenshot-${i}.jpg`, `media/thumbs/screenshot-${i}.webp`, `Screenshot ${i}`)).join('');
-  document.getElementById('gifs').innerHTML = [['rain-garage', 'Rainy garage'], ['growth', 'Garage → campus'], ['release', 'Model release'], ['ending', 'Endings'], ['cat', 'The office cat']]
-    .map(([f, l]) => tile(`media/gifs/${f}.gif`, `media/gifs/${f}.gif`, l)).join('');
-  document.getElementById('art').innerHTML = [['keyart', 'Key art'], ['poster-vertical', 'Vertical poster'], ['act1-garage', 'Act 1 — Garage'], ['act2-coworking', 'Act 2 — Coworking'],
-    ['act3-building', 'Act 3 — Own building'], ['act4-frontier', 'Act 4 — Frontier'], ['act5-singularity', 'Act 5 — Singularity'], ['projects-for-humanity', 'Projects for Humanity'],
-    ['office-cat', 'The office cat'], ['senate-hearing', 'Senate hearing'], ['agi', 'AGI'], ['dyson-swarm', 'Dyson swarm'],
-    ['ending-golden-age', 'Ending: Golden Age'], ['ending-garden', 'Ending: the Garden'], ['ending-doomsday', 'Ending: Doomsday']]
-    .map(([f, l]) => tile(`media/art/${f}.jpg`, `media/thumbs/${f}.webp`, l)).join('');
+  function grids(ru) {
+    document.getElementById('shots').innerHTML = SHOTS.map((i) => tile(`media/screenshots/screenshot-${i}.jpg`, `media/thumbs/screenshot-${i}.webp`, (ru ? 'Скриншот ' : 'Screenshot ') + i)).join('');
+    document.getElementById('gifs').innerHTML = GIFS.map(([f, en, r]) => tile(`media/gifs/${f}.gif`, `media/gifs/${f}.gif`, ru ? r : en)).join('');
+    document.getElementById('art').innerHTML = ART.map(([f, en, r]) => tile(`media/art/${f}.jpg`, `media/thumbs/${f}.webp`, ru ? r : en)).join('');
+    document.getElementById('logos').innerHTML = LOGOS.map(([f, t, en, r]) => tile(`media/${f}`, `media/${t}`, ru ? r : en)).join('');
+  }
+  // язык: по умолчанию английский; русский — если выбран на сайте, в ссылке ?lang=ru или #ru
+  const EN = new Map();
+  document.querySelectorAll('[data-i]').forEach((el) => EN.set(el, el.innerHTML));
+  let lang = 'en';
+  try { if (localStorage.getItem('site.lang') === 'ru') lang = 'ru'; } catch (e) { /* без сохранения */ }
+  if (/[?&]lang=ru/.test(location.search) || location.hash === '#ru') lang = 'ru';
+  if (/[?&]lang=en/.test(location.search) || location.hash === '#en') lang = 'en';
+  function apply() {
+    const ru = lang === 'ru';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i]').forEach((el) => (el.innerHTML = ru && RU[el.dataset.i] !== undefined ? RU[el.dataset.i] : EN.get(el)));
+    document.querySelectorAll('.lang button').forEach((b) => b.classList.toggle('on', b.dataset.l === lang));
+    document.title = ru ? 'Пресс-кит — AI CEO Tycoon' : 'Press Kit — AI CEO Tycoon';
+    grids(ru);
+  }
+  document.querySelectorAll('.lang button').forEach((b) => (b.onclick = () => {
+    lang = b.dataset.l; try { localStorage.setItem('site.lang', lang); } catch (e) { /* без сохранения */ }
+    apply();
+  }));
+  apply();
   // кнопки «Copy»
   document.querySelectorAll('.copy button').forEach((b) => (b.onclick = async () => {
     const text = b.closest('.copy').querySelector('p').innerText;
-    try { await navigator.clipboard.writeText(text); b.textContent = 'Copied'; } catch (e) { b.textContent = 'Select text'; }
-    setTimeout(() => (b.textContent = 'Copy'), 1500);
+    const ru = lang === 'ru';
+    try { await navigator.clipboard.writeText(text); b.textContent = ru ? 'Скопировано' : 'Copied'; } catch (e) { b.textContent = ru ? 'Выдели текст' : 'Select text'; }
+    setTimeout(() => (b.textContent = ru ? RU.copy : 'Copy'), 1500);
   }));
 </script>
 </body>
